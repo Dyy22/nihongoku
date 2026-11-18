@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bangun site/index.html (satu file, tanpa dependensi) dari docs/Minna_no_Nihongo_1_Indonesia.md.
+"""Bangun site/index.html (satu file, tanpa dependensi) dari content/.
 
 Jalankan:  python3 build.py
 """
@@ -10,7 +10,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-SRC = ROOT / "docs" / "Minna_no_Nihongo_1_Indonesia.md"
+SRC = ROOT / "content" / "kosakata.md"
 OUT = ROOT / "site" / "index.html"
 TEMPLATE = ROOT / "template.html"
 

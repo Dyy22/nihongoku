@@ -6,9 +6,9 @@ Situs belajar bahasa Jepang tingkat dasar (mobile-first, ala Duolingo): kana, 25
 - Backend: Cloudflare Worker + D1 (`worker/`, `migrations/`), email lewat Resend.
 - Deploy otomatis: push ke `main` menjalankan `.github/workflows/deploy.yml`.
 
-## Catatan
+## Build
 
-`build.py` membutuhkan teks buku sumber di `docs/` (tidak ada di repo karena hak cipta), jadi `site/` hasil build ikut di-commit dan CI hanya men-deploy-nya. Setelah mengubah `template.html`, `content/`, atau `exams/`, jalankan `python3 build.py` lalu commit `site/`.
+`python3 build.py` merakit `site/index.html` dari `template.html`, `content/` (termasuk daftar kosa kata di `content/kosakata.md`), dan `exams/`. CI menjalankannya sebelum deploy, jadi `site/index.html` tidak di-commit. Audio (`site/audio`, dibuat `gen_audio.py`) dan efek suara (`site/sfx`, dibuat `gen_sfx.py`) di-commit karena butuh layanan eksternal untuk membuatnya.
 
 ## Secrets GitHub Actions
 

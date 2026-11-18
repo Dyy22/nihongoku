@@ -25,10 +25,17 @@ jobs:
           node-version: 22
           cache: npm
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - run: npm ci
 
-      # site/ sudah ter-build dan di-commit (build.py butuh teks buku di docs/ yang
-      # tidak ada di repo). Pastikan hasilnya ada dan tidak memuat teks buku.
+      # site/index.html dibangun di sini dari content/, exams/, dan template.html.
+      # site/audio dan site/sfx adalah hasil generate yang di-commit.
+      - name: Build situs
+        run: python3 build.py
+
       - name: Cek isi site/
         run: |
           test -s site/index.html
