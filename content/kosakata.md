@@ -51,10 +51,10 @@
 | にほん | 日本 | Jepang |
 | ブラジル |  | Brasil |
 | **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
-| NTC／あさひでんき／ブルースカイエアー | NTC／あさひ電気／ブルースカイエアー | nama perusahaan |
-| KSN |  | nama organisasi |
-| みなとびょういん | 港病院 | nama rumah sakit |
-| あおばだいがく／つばきだいがく | あおば大学／つばき大学 | nama universitas |
+| NTC／あさひでんき／ブルースカイエアー | NTC／あさひ電気／ブルースカイエアー | NTC／Asahi Denki／Blue Sky Air (nama perusahaan) |
+| KSN |  | KSN (nama organisasi) |
+| みなとびょういん | 港病院 | Minato Byouin (nama rumah sakit) |
+| あおばだいがく／つばきだいがく | あおば大学／つばき大学 | Aoba Daigaku／Tsubaki Daigaku (nama universitas) |
 
 
 # Pelajaran 2
@@ -254,10 +254,10 @@
 | ロサンゼルス |  | Los Angels |
 | ロンドン |  | London |
 | **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
-| はなまる |  | nama restoran masakan Jepang |
-| ブルーぎんこう | ブルー銀行 | nama bank |
-| ひかりとしょかん | ひかり図書館 | nama perpustakaan |
-| なぎさびじゅつかん | なぎさ美術館 | nama museum seni |
+| はなまる |  | Hanamaru (nama restoran masakan Jepang) |
+| ブルーぎんこう | ブルー銀行 | Blue Ginkou (nama bank) |
+| ひかりとしょかん | ひかり図書館 | Hikari Toshokan (nama perpustakaan) |
+| なぎさびじゅつかん | なぎさ美術館 | Nagisa Bijutsukan (nama museum seni) |
 
 
 # Pelajaran 5
@@ -402,10 +402,10 @@
 | **▸ Kosa kata tambahan** | | |
 | メキシコ |  | Meksiko |
 | **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
-| みなみデパート | 南デパート | nama toserba |
-| たけや |  | nama restoran |
-| ひまわりや |  | nama pasar swalayan |
-| あおぞらや |  | nama pasar swalayan |
+| みなみデパート | 南デパート | Minami Depaato (nama toserba) |
+| たけや |  | Takeya (nama restoran) |
+| ひまわりや |  | Himawariya (nama pasar swalayan) |
+| あおぞらや |  | Aozoraya (nama pasar swalayan) |
 
 
 # Pelajaran 7
@@ -675,7 +675,7 @@
 | **▸ Kosa kata tambahan** | | |
 | とうきょうディズニーランド | 東京ディズニーランド | Tokyo Disneyland |
 | **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
-| グリーンストア |  | nama pasar swalayan |
+| グリーンストア |  | Green Store (nama pasar swalayan) |
 
 
 # Pelajaran 11
@@ -820,8 +820,8 @@
 | ホンコン |  | Hong Kong (香港) |
 | シンガポール |  | Singapura |
 | **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
-| ミライストア |  | nama pasar swalayan |
-| ホープマート |  | nama pasar swalayan |
+| ミライストア |  | Mirai Store (nama pasar swalayan) |
+| ホープマート |  | Hope Mart (nama pasar swalayan) |
 
 
 # Pelajaran 13
@@ -869,8 +869,8 @@
 | ～で ございます。 |  | (bentuk halus dari です) |
 | べつべつに | 別々に | sendiri-sendiri, masing-masing |
 | **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
-| テクノス |  | nama perusahaan |
-| ほっとテレビ |  | nama acara televisi |
+| テクノス |  | Technos (nama perusahaan) |
+| ほっとテレビ |  | Hotto Terebi (nama acara televisi) |
 
 
 # Pelajaran 14
@@ -932,7 +932,7 @@
 | これで おねがいします。 | これで お願いします。 | Minta dengan ini. |
 | おつり | お釣り | uang kembalian |
 | **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
-| さくらちょう | さくら町 | nama kota |
+| さくらちょう | さくら町 | Sakura-chou (nama kota) |
 
 
 # Pelajaran 15
@@ -973,7 +973,7 @@
 | **▸ Kosa kata tambahan** | | |
 | にっぽんばし | 日本橋 | nama daerah perbelanjaan di Osaka |
 | **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
-| わたしの インタビュー |  | nama acara televisi |
+| わたしの インタビュー |  | Watashi no Intabyuu (nama acara televisi) |
 
 
 # Pelajaran 16
@@ -1048,7 +1048,7 @@
 | ベラクルス |  | Veracruz (di Meksiko) |
 | うめだ | 梅田 | Umeda (nama daerah di Osaka) |
 | **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
-| だいがくまえ | 大学前 | nama halte (di depan kampus) |
+| だいがくまえ | 大学前 | depan kampus (nama halte) |
 
 
 # Pelajaran 17
@@ -1286,7 +1286,7 @@
 | カンガルー |  | kanguru |
 | キャプテン・クック |  | Captain James Cook (1728-1779) |
 | **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
-| ソラリス |  | nama perusahaan |
+| ソラリス |  | Solaris (nama perusahaan) |
 
 
 # Pelajaran 22
@@ -1334,7 +1334,7 @@
 | パリ |  | Paris |
 | ばんりのちょうじょう | 万里の 長城 | Tembok Besar Cina |
 | **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
-| くらしの アンケート |  | nama angket |
+| くらしの アンケート |  | Kurashi no Ankeeto (nama angket) |
 
 
 # Pelajaran 23
@@ -1375,9 +1375,9 @@
 | しょうとくたいし | 聖徳太子 | Pangeran Shotoku (574-622) |
 | ほうりゅうじ | 法隆寺 | nama wihara yang dibangun oleh Pangeran Shotoku pada awal abad ke tujuh di Nara |
 | **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
-| さわやかちゃ | さわやか茶 | nama merek teh |
-| やまかわえき | 山川駅 | nama stasiun |
-| としょかんまえ | 図書館前 | nama halte bus |
+| さわやかちゃ | さわやか茶 | Sawayaka Cha (nama merek teh) |
+| やまかわえき | 山川駅 | Yamakawa Eki (nama stasiun) |
+| としょかんまえ | 図書館前 | depan perpustakaan (nama halte bus) |
 
 
 # Pelajaran 24
