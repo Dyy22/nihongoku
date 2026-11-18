@@ -9,3 +9,5 @@ __pycache__/
 # Teks buku sumber (hak cipta): hanya ada di komputer lokal, jangan di-commit
 docs/
 site/index.html
+site/sw.js
+site/manifest.webmanifest

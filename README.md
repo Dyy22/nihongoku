@@ -11,6 +11,7 @@ Situs belajar bahasa Jepang tingkat dasar, mobile-first dan bergaya Duolingo. Li
 - **Simulasi ujian**: JLPT N5 dan JFT-Basic A1.
 - **Progres**: XP, hari beruntun, target harian, dan latihan ulang untuk kata yang sering salah. Tersimpan di browser dan, kalau masuk akun, disinkronkan ke server.
 - **Akun**: daftar dengan username dan password, verifikasi email, masuk dengan email, dan lupa password. Email dikirim lewat Resend.
+- **PWA**: bisa dipasang di layar utama (Android, iOS, desktop) dan dibuka offline. Halaman dan audio yang pernah diputar tersimpan di cache. Login, progres, dan email tetap butuh internet.
 - **Pencarian** kosa kata (kana, kanji, atau arti), tema terang dan gelap.
 
 ## Struktur
@@ -25,6 +26,8 @@ Situs belajar bahasa Jepang tingkat dasar, mobile-first dan bergaya Duolingo. Li
 | `build.py` | Merakit `site/index.html` dari semua yang di atas, dan menulis `audio_texts.json` |
 | `gen_audio.py` | Membuat `site/audio/*.mp3` dari `audio_texts.json` |
 | `gen_sfx.py` | Membuat `site/sfx/*.mp3` (efek suara) |
+| `gen_icons.py` | Membuat ikon PWA di `site/icons/` (butuh Pillow dan font Noto Sans CJK JP) |
+| `sw.template.js` | Template service worker; `build.py` menjadikannya `site/sw.js` dan menulis `site/manifest.webmanifest` |
 | `check_content.py` | Memeriksa kanji di `content/` yang belum punya furigana |
 | `worker/index.js` | API akun (`/api/*`) di Cloudflare Worker |
 | `migrations/` | Skema database D1 |
@@ -65,7 +68,7 @@ python3 build.py && .venv/bin/python gen_audio.py
 
 ## Deploy
 
-Push ke `main` menjalankan `.github/workflows/deploy.yml`: `npm ci`, `python3 build.py`, cek isi `site/`, migrasi D1, lalu `wrangler deploy`. `site/index.html` dibangun di CI dan tidak di-commit. `site/audio` dan `site/sfx` di-commit karena membuatnya butuh layanan eksternal.
+Push ke `main` menjalankan `.github/workflows/deploy.yml`: `npm ci`, `python3 build.py`, cek isi `site/`, migrasi D1, lalu `wrangler deploy`. `site/index.html` dibangun di CI dan tidak di-commit. `site/audio`, `site/sfx`, dan `site/icons` di-commit karena membuatnya butuh layanan eksternal atau font tertentu.
 
 Deploy manual dari komputer lokal:
 

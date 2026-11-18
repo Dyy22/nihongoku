@@ -435,6 +435,36 @@ def split_on(lines, prefix):
     return pre, parts
 
 
+MANIFEST = {
+    "id": "/",
+    "name": "Nihongoku — Belajar Bahasa Jepang",
+    "short_name": "Nihongoku",
+    "description": "Belajar bahasa Jepang dasar dengan latihan singkat ala Duolingo: kana, 25 pelajaran, dan simulasi ujian.",
+    "lang": "id",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#f6f2ea",
+    "theme_color": "#f6f2ea",
+    "categories": ["education"],
+    "icons": [
+        {"src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+        {"src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+        {"src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"},
+    ],
+}
+
+
+def write_pwa(page: str):
+    """Tulis manifest dan service worker. Versi SW = hash isi situs, supaya tiap perubahan memicu pembaruan."""
+    site = OUT.parent
+    (site / "manifest.webmanifest").write_text(json.dumps(MANIFEST, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    sw = (ROOT / "sw.template.js").read_text(encoding="utf-8")
+    version = hashlib.sha1((page + sw).encode("utf-8")).hexdigest()[:10]
+    (site / "sw.js").write_text(sw.replace("{{VERSION}}", version), encoding="utf-8")
+
+
 def build():
     text = SRC.read_text(encoding="utf-8")
     text = re.sub(r"\A---\n.*?\n---\n", "", text, flags=re.S)
@@ -554,6 +584,7 @@ def build():
             .replace("{{META}}", meta.replace("</", "<\\/")))
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(page, encoding="utf-8")
+    write_pwa(page)
     print(f"{OUT.relative_to(ROOT)}: {len(page)/1024:.0f} KB, {len(lessons)} pelajaran, {len(vocab)} kosa kata, "
           f"{len(others)} bagian lain, {len(exams)} ujian, audio {len(audio)}/{len(texts)}")
 
