@@ -50,7 +50,7 @@ Ganti は dengan **も** kalau keterangannya sama dengan kalimat sebelumnya.
 
 > A の B
 
-- 私{わたし}は さくら大学{だいがく}の 学生{がくせい}です。 | Saya mahasiswa Universitas Sakura.
+- 私{わたし}は あおば大学{だいがく}の 学生{がくせい}です。 | Saya mahasiswa Universitas Aoba.
 - 田中{たなか}さんは 日本語{にほんご}の 先生{せんせい}です。 | Pak Tanaka guru bahasa Jepang.
 
 ## 6. ～さん: panggilan sopan
@@ -68,7 +68,7 @@ Rina, mahasiswi dari Indonesia, bertemu Ken di kelas bahasa Jepang.
 ケン: はじめまして。ケンです。 | Salam kenal. Saya Ken.
 リナ: はじめまして。リナです。インドネシアから 来{き}ました。 | Salam kenal. Saya Rina. Saya datang dari Indonesia.
 ケン: リナさんは 学生{がくせい}ですか。 | Rina mahasiswa?
-リナ: はい、さくら大学{だいがく}の 学生{がくせい}です。ケンさんも 学生{がくせい}ですか。 | Ya, mahasiswa Universitas Sakura. Ken juga mahasiswa?
+リナ: はい、あおば大学{だいがく}の 学生{がくせい}です。ケンさんも 学生{がくせい}ですか。 | Ya, mahasiswa Universitas Aoba. Ken juga mahasiswa?
 ケン: いいえ、学生{がくせい}じゃ ありません。会社員{かいしゃいん}です。 | Bukan, saya bukan mahasiswa. Saya karyawan.
 リナ: そうですか。どうぞ よろしく。 | Oh, begitu. Senang berkenalan.
 ケン: こちらこそ、よろしく お願{ねが}いします。 | Sama-sama, mohon bantuannya juga.

@@ -54,7 +54,7 @@ Partikel **に** menandai titik waktu yang pakai angka (jam, tanggal, hari).
 ## Bertanya jam buka perpustakaan
 Rina menelepon perpustakaan kota.
 
-職員{しょくいん}: はい、みどり図書館{としょかん}です。 | Ya, Perpustakaan Midori.
+職員{しょくいん}: はい、ひかり図書館{としょかん}です。 | Ya, Perpustakaan Hikari.
 リナ: すみません、そちらは 何時{なんじ}から 何時{なんじ}までですか。 | Permisi, perpustakaan buka dari jam berapa sampai jam berapa?
 職員{しょくいん}: 9時{くじ}から 7時{しちじ}までです。 | Dari jam 9 sampai jam 7.
 リナ: 休{やす}みは 何曜日{なんようび}ですか。 | Liburnya hari apa?

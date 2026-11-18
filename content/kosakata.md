@@ -18,7 +18,7 @@
 | きょうし | 教師 | guru, dosen |
 | がくせい | 学生 | mahasiswa |
 | かいしゃいん | 会社員 | karyawan perusahaan |
-| しゃいん | 社員 | karyawan perusahaan (dipakai bersama dengan nama perusahaan. Contoh: IMC の しゃいん (karyawan perusahaan IMC)) |
+| しゃいん | 社員 | karyawan perusahaan (dipakai bersama dengan nama perusahaan. Contoh: NTC の しゃいん (karyawan perusahaan NTC)) |
 | ぎんこういん | 銀行員 | pegawai bank |
 | いしゃ | 医者 | dokter |
 | けんきゅうしゃ | 研究者 | peneliti |
@@ -50,11 +50,11 @@
 | ドイツ |  | Jerman |
 | にほん | 日本 | Jepang |
 | ブラジル |  | Brasil |
-| **▸ Nama fiksi** | | |
-| IMC／パワーでんき／ブラジルエアー | IMC／パワー電気／ブラジルエアー | perusahaan fiksi |
-| AKC |  | organisasi fiksi |
-| こうべびょういん | 神戸病院 | rumah sakit fiksi |
-| さくらだいがく／ふじだいがく | さくら大学／富士大学 | universitas fiksi |
+| **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
+| NTC／あさひでんき／ブルースカイエアー | NTC／あさひ電気／ブルースカイエアー | nama perusahaan |
+| KSN |  | nama organisasi |
+| みなとびょういん | 港病院 | nama rumah sakit |
+| あおばだいがく／つばきだいがく | あおば大学／つばき大学 | nama universitas |
 
 
 # Pelajaran 2
@@ -253,11 +253,11 @@
 | ペキン |  | Beijing (北京) |
 | ロサンゼルス |  | Los Angels |
 | ロンドン |  | London |
-| **▸ Nama fiksi** | | |
-| あすか |  | restoran masakan Jepang fiksi |
-| アップルぎんこう | アップル銀行 | bank fiksi |
-| みどりとしょかん | みどり図書館 | perpustakaan fiksi |
-| やまとびじゅつかん | やまと美術館 | gedung kesenian fiksi |
+| **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
+| はなまる |  | nama restoran masakan Jepang |
+| ブルーぎんこう | ブルー銀行 | nama bank |
+| ひかりとしょかん | ひかり図書館 | nama perpustakaan |
+| なぎさびじゅつかん | なぎさ美術館 | nama museum seni |
 
 
 # Pelajaran 5
@@ -401,11 +401,11 @@
 | じゃ、また [あした]。 |  | Ok, sampai jumpa [besok]. |
 | **▸ Kosa kata tambahan** | | |
 | メキシコ |  | Meksiko |
-| **▸ Nama fiksi** | | |
-| おおさかデパート | 大阪デパート | toserba fiksi |
-| つるや |  | restoran fiksi |
-| フランスや | フランス屋 | pasar swalayan fiksi |
-| まいにちや | 毎日屋 | pasar swalayan fiksi |
+| **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
+| みなみデパート | 南デパート | nama toserba |
+| たけや |  | nama restoran |
+| ひまわりや |  | nama pasar swalayan |
+| あおぞらや |  | nama pasar swalayan |
 
 
 # Pelajaran 7
@@ -674,8 +674,8 @@
 | いちばん した | いちばん 下 | paling bawah |
 | **▸ Kosa kata tambahan** | | |
 | とうきょうディズニーランド | 東京ディズニーランド | Tokyo Disneyland |
-| **▸ Nama fiksi** | | |
-| アジアストア |  | pasar swalayan fiksi |
+| **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
+| グリーンストア |  | nama pasar swalayan |
 
 
 # Pelajaran 11
@@ -819,9 +819,9 @@
 | ぎおんまつり | 祇園祭 | Perayaan Gion (perayaan yang paling ternekal di Kyoto) |
 | ホンコン |  | Hong Kong (香港) |
 | シンガポール |  | Singapura |
-| **▸ Nama fiksi** | | |
-| ABC ストア |  | pasar swalayan fiksi |
-| ジャパン |  | pasar swalayan fiksi |
+| **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
+| ミライストア |  | nama pasar swalayan |
+| ホープマート |  | nama pasar swalayan |
 
 
 # Pelajaran 13
@@ -868,9 +868,9 @@
 | [しょうしょう] おまちください。 | [少々] お待ちください。 | Tunggu [sebentar]. |
 | ～で ございます。 |  | (bentuk halus dari です) |
 | べつべつに | 別々に | sendiri-sendiri, masing-masing |
-| **▸ Nama fiksi** | | |
-| アキックス |  | perusahaan fiksi |
-| おはようテレビ |  | acara televisi fiksi |
+| **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
+| テクノス |  | nama perusahaan |
+| ほっとテレビ |  | nama acara televisi |
 
 
 # Pelajaran 14
@@ -931,8 +931,8 @@
 | しんごうを みぎへ まがって ください。 | 信号を 右へ 曲がって ください。 | Tolong belok ke kanan di lampu lalu lintas. |
 | これで おねがいします。 | これで お願いします。 | Minta dengan ini. |
 | おつり | お釣り | uang kembalian |
-| **▸ Nama fiksi** | | |
-| みどりちょう | みどり町 | kota fiksi |
+| **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
+| さくらちょう | さくら町 | nama kota |
 
 
 # Pelajaran 15
@@ -972,8 +972,8 @@
 | いらっしゃいます Ⅰ |  | bentuk hormat dari います |
 | **▸ Kosa kata tambahan** | | |
 | にっぽんばし | 日本橋 | nama daerah perbelanjaan di Osaka |
-| **▸ Nama fiksi** | | |
-| みんなの インタビュー |  | acara televisi fiksi |
+| **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
+| わたしの インタビュー |  | nama acara televisi |
 
 
 # Pelajaran 16
@@ -1047,8 +1047,8 @@
 | フランケン |  | Franken (di Jerman) |
 | ベラクルス |  | Veracruz (di Meksiko) |
 | うめだ | 梅田 | Umeda (nama daerah di Osaka) |
-| **▸ Nama fiksi** | | |
-| だいがくまえ | 大学前 | halte fiksi |
+| **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
+| だいがくまえ | 大学前 | nama halte (di depan kampus) |
 
 
 # Pelajaran 17
@@ -1285,8 +1285,8 @@
 | よしのやま | 吉野山 | Gunung Yoshino (gunung yang ada di Nara) |
 | カンガルー |  | kanguru |
 | キャプテン・クック |  | Captain James Cook (1728-1779) |
-| **▸ Nama fiksi** | | |
-| ヨーネン |  | perusahaan fiksi |
+| **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
+| ソラリス |  | nama perusahaan |
 
 
 # Pelajaran 22
@@ -1333,8 +1333,8 @@
 | **▸ Kosa kata tambahan** | | |
 | パリ |  | Paris |
 | ばんりのちょうじょう | 万里の 長城 | Tembok Besar Cina |
-| **▸ Nama fiksi** | | |
-| みんなの アンケート |  | angket fiksi |
+| **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
+| くらしの アンケート |  | nama angket |
 
 
 # Pelajaran 23
@@ -1374,10 +1374,10 @@
 | **▸ Kosa kata tambahan** | | |
 | しょうとくたいし | 聖徳太子 | Pangeran Shotoku (574-622) |
 | ほうりゅうじ | 法隆寺 | nama wihara yang dibangun oleh Pangeran Shotoku pada awal abad ke tujuh di Nara |
-| **▸ Nama fiksi** | | |
-| げんきちゃ | 元気茶 | teh fiksi |
-| ほんだえき | 本田駅 | stasiun fiksi |
-| としょかんまえ | 図書館前 | halte bus fiksi |
+| **▸ Nama tempat, perusahaan, dan acara dalam contoh** | | |
+| さわやかちゃ | さわやか茶 | nama merek teh |
+| やまかわえき | 山川駅 | nama stasiun |
+| としょかんまえ | 図書館前 | nama halte bus |
 
 
 # Pelajaran 24

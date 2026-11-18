@@ -6,6 +6,8 @@ import sys
 
 bad = 0
 for f in sorted(glob.glob("content/*.md")):
+    if f.endswith("kosakata.md"):  # tabel kana/kanji: furigana dibuat dari kolomnya oleh build.py
+        continue
     for n, ln in enumerate(open(f, encoding="utf-8"), 1):
         s = ln.rstrip("\n")
         if s.startswith(("judul:", "ringkas:", "grup:", "sisip:")):
