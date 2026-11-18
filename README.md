@@ -87,5 +87,4 @@ Domain pengirim email (`mail.dylab.my.id`) diverifikasi di Resend lewat record D
 
 ## Catatan
 
-- Teks buku sumber (`docs/`) tidak ada di repo karena hak cipta, dan `docs/` ada di `.gitignore`. Materi tata bahasa dan percakapan di `content/` ditulis sendiri. Daftar kosa kata di `content/kosakata.md` diturunkan dari buku tersebut.
 - Worker memakai PBKDF2 dengan 30.000 iterasi supaya muat di batas CPU 10 ms paket gratis Cloudflare. Jumlah iterasi disimpan per akun, jadi nilainya bisa dinaikkan dan akun lama diperbarui saat masuk.
