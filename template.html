@@ -45,13 +45,13 @@ body.nofuri rt{visibility:hidden}
 .ib{width:44px;height:44px;display:grid;place-items:center;border:0;background:none;color:inherit;border-radius:12px;cursor:pointer;font-weight:700;font-size:15px}
 .ib:active{background:var(--soft)}
 .ib svg,.search svg,.bnav svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-#furi{font-family:var(--jp)}
-.mutebtn svg .x{display:none;stroke-width:2.4} body.mute .mutebtn svg .x{display:inline} body.mute .mutebtn{color:var(--muted)} body.nofuri #furi{color:var(--muted);text-decoration:line-through}
+#furi,.furibtn{font-family:var(--jp)}
+.mutebtn svg .x{display:none;stroke-width:2.4} body.mute .mutebtn svg .x{display:inline} body.mute .mutebtn{color:var(--muted)} body.nofuri #furi,body.nofuri .furibtn{color:var(--muted);text-decoration:line-through}
 
 main{max-width:760px;margin:0 auto;padding:0 16px calc(var(--nav) + 40px + env(safe-area-inset-bottom))}
 
 /* bottom nav */
-.bnav{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(4,1fr);
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(5,1fr);
   height:calc(var(--nav) + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);
   background:var(--surface);border-top:1px solid var(--line)}
 .bnav a{display:grid;place-items:center;align-content:center;gap:2px;font-size:11.5px;font-weight:650;color:var(--muted)}
@@ -283,6 +283,105 @@ body.hide .v:not(.show) .ar{filter:blur(6px);user-select:none}
 .badge.ok{background:var(--ok-bg);color:var(--ok)} .badge.no{background:var(--bad-bg);color:var(--bad)}
 .erow .acts{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:6px}
 
+/* exams */
+.exlist{display:grid;gap:12px;margin-top:18px}
+.excard{display:block;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;transition:border-color .15s}
+.excard:active{background:var(--soft)}
+.excard-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.excode{display:inline-grid;place-items:center;min-width:44px;height:30px;padding:0 10px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font:800 14px var(--ui);letter-spacing:.04em}
+.excard h3{margin:0 0 4px;font-size:19px;line-height:1.25}
+.excard p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+.exmeta{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:12px;font-size:12.5px;font-weight:650;color:var(--muted)}
+.exhero{margin-top:14px;padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.exhero .excode{margin-bottom:10px}
+.exhero h1{margin:0 0 4px;font-size:26px;line-height:1.2}
+.exhero .sub{font-size:14.5px;margin-bottom:12px}
+.exrules{display:grid;gap:6px;margin:12px 0 16px;padding:12px 14px;background:var(--soft);border-radius:12px;font-size:13.5px}
+.exrules div{display:flex;justify-content:space-between;gap:12px}
+.exrules span{color:var(--muted)}
+.secbox{margin-top:12px;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.secbox-h{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.secbox-h h3{margin:0;font-size:16.5px;line-height:1.35}
+.secbox-h small{flex:none;padding:3px 9px;border-radius:99px;background:var(--soft);font-size:12px;font-weight:700;color:var(--muted)}
+.secbox p{margin:6px 0 12px;font-size:13.5px;color:var(--muted);line-height:1.5}
+.secacts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.btn.sm{height:44px;font-size:13.5px;letter-spacing:.02em;text-transform:none;font-weight:750;border-radius:12px}
+.ghost.sm{height:44px;font-size:13.5px;letter-spacing:.02em;text-transform:none;font-weight:750;border-radius:12px;color:var(--ink)}
+
+/* exam runner */
+#exam{position:fixed;inset:0;z-index:55;display:flex;flex-direction:column;background:var(--bg)}
+.etop{display:flex;align-items:center;gap:6px;padding:6px 10px 6px 4px;border-bottom:1px solid var(--line);background:var(--bg)}
+.etop h3{flex:1;min-width:0;margin:0;font-size:14.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.etimer{flex:none;padding:5px 10px;border-radius:99px;background:var(--soft);font:750 13.5px ui-monospace,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
+.etimer.warn{background:var(--bad-bg);color:var(--bad)}
+.epills{display:flex;gap:6px;overflow-x:auto;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--surface);scrollbar-width:none}
+.epills::-webkit-scrollbar{display:none}
+.epill{position:relative;flex:none;min-width:36px;height:34px;padding:0 8px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);
+  font:700 13px var(--ui);color:var(--muted);cursor:pointer;display:grid;place-items:center}
+.epill.ans{border-color:var(--u1);color:var(--u1);background:color-mix(in srgb,var(--u1) 10%,var(--surface))}
+.epill.ok{border-color:var(--ok);color:var(--ok);background:var(--ok-bg)}
+.epill.bad{border-color:var(--bad);color:var(--bad);background:var(--bad-bg)}
+.epill.cur{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.epill.flag::after{content:"";position:absolute;top:-3px;right:-3px;width:9px;height:9px;border-radius:50%;background:var(--u3);border:1.5px solid var(--surface)}
+.ebody{flex:1;overflow-y:auto;width:100%;max-width:640px;margin:0 auto;padding:14px 16px 28px}
+.emondai{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:4px;font-size:12.5px;font-weight:750;color:var(--accent);letter-spacing:.03em}
+.einst{margin:0 0 14px;font-size:13.5px;color:var(--muted)}
+.epassage{margin-bottom:16px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;font-size:16.5px;line-height:2.05}
+.eaudio{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.eaudio>div{flex:1;min-width:0}
+.eaudio b{display:block;font-size:14.5px}
+.eaudio small{display:block;font-size:12.5px;color:var(--muted)}
+.eq{margin:0 0 16px;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;font-size:19px;font-weight:400;line-height:2.05}
+.eq strong,.epassage strong,.erev-q strong{font-weight:800;color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent);padding:1px 6px;border-radius:6px}
+.eq u,.erev-card u{font-weight:750;color:var(--accent);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px;text-decoration-color:var(--accent)}
+.eopts{display:grid;gap:10px}
+.eopt{display:flex;align-items:center;gap:12px;width:100%;min-height:54px;padding:10px 14px;border:2px solid var(--line);border-radius:14px;background:var(--surface);
+  text-align:left;font-size:16px;line-height:1.8;cursor:pointer;box-shadow:0 3px 0 var(--line)}
+.eopt .enum{flex:none;width:28px;height:28px;display:grid;place-items:center;border-radius:8px;background:var(--soft);font:750 13.5px var(--ui);color:var(--muted)}
+.eopt .etxt{flex:1;min-width:0}
+.eopt.sel{border-color:var(--u1);background:color-mix(in srgb,var(--u1) 9%,var(--surface));box-shadow:0 3px 0 var(--u1)}
+.eopt.sel .enum{background:var(--u1);color:#fff}
+.eopt.ok{border-color:var(--ok);background:var(--ok-bg);box-shadow:0 3px 0 var(--ok)}
+.eopt.ok .enum{background:var(--ok);color:#fff}
+.eopt.bad{border-color:var(--bad);background:var(--bad-bg);box-shadow:0 3px 0 var(--bad)}
+.eopt.bad .enum{background:var(--bad);color:#fff}
+.eopt:disabled{cursor:default}
+.efeed{margin-top:16px;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--surface);font-size:14.5px;line-height:1.75}
+.efeed.ok{border-color:var(--ok);background:var(--ok-bg)}
+.efeed.bad{border-color:var(--bad);background:var(--bad-bg)}
+.efeed-h{font-weight:800;font-size:15.5px;margin-bottom:6px}
+.efeed.ok .efeed-h{color:var(--ok)} .efeed.bad .efeed-h{color:var(--bad)}
+.escript{margin:10px 0;padding:10px 12px;border-radius:10px;background:var(--surface);border:1px solid var(--line);font-size:14.5px;line-height:1.95}
+.efoot{border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--bg)}
+.efoot-in{max-width:640px;margin:0 auto;display:flex;gap:8px;align-items:center}
+.ebtn-ic{flex:none;min-width:46px;height:46px;padding:0 12px;border:2px solid var(--line);border-radius:12px;background:var(--surface);font-weight:750;font-size:15px;cursor:pointer;display:grid;place-items:center}
+.ebtn-ic:disabled{opacity:.4;cursor:default}
+.ebtn-ic.on{border-color:var(--u3);background:color-mix(in srgb,var(--u3) 14%,var(--surface));color:var(--u3)}
+.efoot .btn{height:46px;font-size:14.5px;flex:1}
+
+/* exam results */
+.eres-head{padding:20px 18px;border-radius:18px;background:var(--surface);border:1px solid var(--line);text-align:center}
+.eres-status{display:inline-block;padding:4px 12px;border-radius:99px;font-size:13px;font-weight:800;letter-spacing:.06em}
+.eres-status.ok{background:var(--ok-bg);color:var(--ok)} .eres-status.no{background:var(--bad-bg);color:var(--bad)}
+.eres-score{margin:10px 0 4px;font-size:44px;font-weight:850;line-height:1.05;font-variant-numeric:tabular-nums}
+.eres-score small{font-size:20px;font-weight:700;color:var(--muted)}
+.eres-head .stats{padding-top:12px}
+.eres-head .chip{flex-direction:column;gap:2px;padding:10px 6px}
+.egroups{display:grid;gap:10px;margin-top:14px}
+.egroup{padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.egroup-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:14px;font-weight:700}
+.egroup-sub{display:flex;justify-content:space-between;margin-top:4px;font-size:12.5px;color:var(--muted)}
+.erev-tabs{display:flex;gap:8px;margin:20px 0 12px}
+.erev-tabs button{padding:7px 14px;border:1px solid var(--line);border-radius:99px;background:var(--surface);font-size:13px;font-weight:700;color:var(--muted);cursor:pointer}
+.erev-tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.erev-list{display:grid;gap:12px}
+.erev-card{padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.erev-card-h{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;font-size:12.5px;font-weight:750;color:var(--muted)}
+.erev-q{font-size:16.5px;font-weight:400;line-height:1.95;margin-bottom:8px}
+.erev-ans{font-size:14px;line-height:1.75;padding:8px 10px;border-radius:10px;background:var(--soft);margin-bottom:8px}
+.erev-exp{font-size:14px;line-height:1.7;color:var(--muted)}
+.erev-card details{margin-bottom:8px}
+
 @media (min-width:600px){
   .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .v{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:20px;align-items:end}
@@ -297,7 +396,7 @@ body.hide .v:not(.show) .ar{filter:blur(6px);user-select:none}
   <a class="ib" id="back" href="#/buku" aria-label="Kembali ke Buku" hidden><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a>
   <h2 id="title">Belajar</h2>
   <button class="ib mutebtn" type="button" aria-pressed="false" aria-label="Matikan suara pelafalan" title="Suara pelafalan"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path class="x" d="M3 3l18 18"/></svg></button>
-  <button class="ib" id="furi" type="button" aria-label="Tampilkan atau sembunyikan furigana" title="Furigana">ふ</button>
+  <button class="ib furibtn" id="furi" type="button" aria-label="Tampilkan atau sembunyikan furigana" title="Furigana">ふ</button>
   <button class="ib" id="theme" type="button" aria-label="Ganti tema terang/gelap"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg></button>
 </div>
 <main>
@@ -317,12 +416,14 @@ body.hide .v:not(.show) .ar{filter:blur(6px);user-select:none}
   <input id="q" type="search" placeholder="Kana, kanji, atau arti" autocomplete="off" enterkeyhint="search"></label>
   <div id="results"><p class="empty">Cari di antara semua kosa kata Pelajaran 1–25.</p></div>
 </section>
+<section class="page" id="pg-ujian" data-title="Simulasi Ujian" hidden><div id="ujian"></div></section>
 <section class="page" id="pg-akun" data-title="Akun" hidden><div id="akun"></div></section>
 {{PAGES}}
 </main>
 <nav class="bnav" id="bnav">
   <a href="#/" data-nav="home"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .8-4.4 4.2 1.1 6-5.3-3-5.3 3 1.1-6L3.4 9.4l6-.8z"/></svg>Belajar</a>
   <a href="#/buku" data-nav="buku"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/><path d="M19 19v2H6"/></svg>Buku</a>
+  <a href="#/ujian" data-nav="ujian"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12l2 2 4-4"/><path d="M9 17h6"/></svg>Ujian</a>
   <a href="#/cari" data-nav="cari"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>Cari</a>
   <a href="#/akun" data-nav="akun"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Akun</a>
 </nav>
@@ -331,7 +432,14 @@ body.hide .v:not(.show) .ar{filter:blur(6px);user-select:none}
   <div class="qbody" id="qbody"></div>
   <div class="qfoot" id="qfoot"><div><div class="fb" id="qfb" hidden></div><button class="btn" id="qbtn" type="button">Lanjut</button></div></div>
 </div>
+<div id="exam" hidden>
+  <div class="etop"><button class="ib" id="ex" type="button" aria-label="Keluar dari simulasi"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><h3 id="etitle">Simulasi</h3><span class="etimer" id="etimer"></span><button class="ib mutebtn" type="button" aria-pressed="false" aria-label="Matikan suara pelafalan" title="Suara pelafalan"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path class="x" d="M3 3l18 18"/></svg></button><button class="ib furibtn" type="button" aria-label="Tampilkan atau sembunyikan furigana" title="Furigana">ふ</button></div>
+  <div class="epills" id="epills"></div>
+  <div class="ebody" id="ebody"></div>
+  <div class="efoot" id="efoot"><div class="efoot-in" id="efoot-in"></div></div>
+</div>
 <script id="vocab" type="application/json">{{VOCAB}}</script>
+<script id="exams" type="application/json">{{EXAMS}}</script>
 <script id="meta" type="application/json">{{META}}</script>
 <script>
 (function(){
@@ -341,14 +449,16 @@ const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},se
 const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const toKata=s=>s.replace(/[ぁ-ゖ]/g,c=>String.fromCharCode(c.charCodeAt(0)+96));
-const V=JSON.parse($('#vocab').textContent), META=JSON.parse($('#meta').textContent);
+const V=JSON.parse($('#vocab').textContent), EXAMS=JSON.parse($('#exams').textContent), META=JSON.parse($('#meta').textContent);
+const EXAM_MAP={}; EXAMS.forEach(e=>EXAM_MAP[e.id]=e);
 const SPK='<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>';
 const GOAL=30, PASS=70, EXAMQ=20; // ujian bab: lulus >= 70% menyelesaikan semua sesi bab
 
 /* ---------- state ---------- */
-const blank=()=>({xp:0,streak:0,last:'',day:'',dayXp:0,done:{},miss:{},t:0});
+const blank=()=>({xp:0,streak:0,last:'',day:'',dayXp:0,done:{},miss:{},exams:{},t:0});
 let S=blank();
 try{Object.assign(S,JSON.parse(store.get('progress')||'{}'))}catch(e){}
+if(!S.exams||typeof S.exams!=='object')S.exams={};
 const persist=()=>store.set('progress',JSON.stringify(S));
 const save=()=>{S.t=Date.now();persist();queuePush()};
 const dayStr=d=>d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
@@ -367,6 +477,7 @@ function speak(t,force){
   if(a){try{if(playing&&playing!==a)playing.pause();a.currentTime=0;playing=a;a.play().catch(()=>{})}catch(e){}return}
   try{if(!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='ja-JP';u.rate=.85;speechSynthesis.speak(u)}catch(e){}
 }
+function stopSpeak(){try{if(playing){playing.pause();playing.currentTime=0;playing=null}if('speechSynthesis'in window)speechSynthesis.cancel()}catch(e){}}
 
 // Efek suara jawaban: file hasil gen_sfx.py di sfx/. Tidak ikut tombol mute
 // (mute hanya untuk pelafalan bahasa Jepang).
@@ -468,7 +579,7 @@ function startQuiz(uid,sid){
   $('#quiz').hidden=false; document.body.style.overflow='hidden';
   showStep(); return true;
 }
-function closeQuiz(){Q=null;$('#quiz').hidden=true;document.body.style.overflow='';try{speechSynthesis.cancel()}catch(e){}}
+function closeQuiz(){Q=null;$('#quiz').hidden=true;document.body.style.overflow='';stopSpeak()}
 function foot(state,html,label,enabled){
   qfoot.className='qfoot'+(state?' '+state:''); qfb.hidden=!html; qfb.innerHTML=html||'';
   qbtn.textContent=label; qbtn.disabled=!enabled;
@@ -567,6 +678,265 @@ async function leaveQuiz(){
 }
 $('#qx').onclick=leaveQuiz;
 
+/* ---------- ujian / simulasi ---------- */
+let E=null;
+const fmtTime=s=>{const m=Math.floor(s/60), r=s%60; return String(m).padStart(2,'0')+':'+String(r).padStart(2,'0')};
+function renderUjian(examId){
+  const box=$('#ujian');
+  if(!EXAMS.length){box.innerHTML='<p class="empty">Belum ada paket simulasi ujian.</p>';return}
+  if(!examId){
+    box.innerHTML='<header class="hero"><p class="eyebrow" lang="ja">しけん</p><h1>Simulasi Ujian</h1><p class="sub">Latihan soal dan simulasi tes berwaktu untuk mengukur kemampuan bahasa Jepangmu.</p></header>'+
+      '<div class="exlist">'+EXAMS.map(ex=>{
+        const totQ=ex.sections.reduce((n,s)=>n+s.questions.length,0), totM=ex.sections.reduce((n,s)=>n+s.minutes,0);
+        const rec=(S.exams||{})[ex.id];
+        const badge=rec&&rec.last!=null?(rec.passed?'<span class="badge ok">Lulus · terbaik '+rec.best+'/'+ex.maxTotal+'</span>':'<span class="badge no">Terbaik '+rec.best+'/'+ex.maxTotal+'</span>'):'';
+        return '<a class="excard" href="#/ujian/'+esc(ex.id)+'"><div class="excard-top"><span class="excode">'+esc(ex.code)+'</span>'+badge+'</div>'+
+          '<h3>'+esc(ex.title)+'</h3><p>'+esc(ex.desc)+'</p>'+
+          '<div class="exmeta"><span>'+ex.sections.length+' bagian</span><span>'+totQ+' soal</span><span>'+totM+' menit</span><span>Lulus ≥ '+ex.passTotal+'/'+ex.maxTotal+'</span></div></a>';
+      }).join('')+'</div>';
+    return;
+  }
+  const ex=EXAM_MAP[examId];
+  if(!ex){location.replace('#/ujian');return}
+  const totQ=ex.sections.reduce((n,s)=>n+s.questions.length,0), totM=ex.sections.reduce((n,s)=>n+s.minutes,0);
+  const rec=(S.exams||{})[ex.id]||{};
+  const scoreHtml=rec.last!=null?'<div class="exrules"><div><span>Skor terbaik</span><b>'+rec.best+' / '+ex.maxTotal+(rec.passed?' <span class="badge ok">Lulus</span>':'')+'</b></div>'+
+    '<div><span>Percobaan terakhir</span><b>'+rec.last+' / '+ex.maxTotal+(rec.lastPassed?' (Lulus)':' (Belum lulus)')+'</b></div></div>':'';
+  box.innerHTML='<div class="exhero"><span class="excode">'+esc(ex.code)+'</span><h1>'+esc(ex.title)+'</h1><p class="sub">'+esc(ex.subtitle)+'</p>'+
+    '<p style="margin:0 0 12px;font-size:14.5px">'+esc(ex.desc)+'</p>'+
+    '<div class="exrules"><div><span>Total soal & durasi</span><b>'+totQ+' soal · '+totM+' menit</b></div>'+
+    '<div><span>Batas lulus total</span><b>'+ex.passTotal+' / '+ex.maxTotal+' poin</b></div>'+
+    (ex.scoreGroups.some(g=>g.pass>0)?ex.scoreGroups.filter(g=>g.pass>0).map(g=>'<div><span>Min. '+esc(g.title.split('(')[0].trim())+'</span><b>'+g.pass+' / '+g.max+' poin</b></div>').join(''):'<div><span>Syarat bagian</span><b>Tidak ada batas minimal per bagian</b></div>')+'</div>'+
+    scoreHtml+
+    '<a class="btn" href="#/ujian/'+esc(ex.id)+'/full" style="display:grid;place-items:center">Mulai Simulasi Penuh ('+totM+' Menit)</a></div>'+
+    '<h2 class="sec">Latihan per Bagian</h2>'+
+    ex.sections.map(sec=>{
+      const sr=(rec.secs||{})[sec.id];
+      return '<div class="secbox"><div class="secbox-h"><h3>'+esc(sec.title)+'</h3><small>'+sec.questions.length+' soal · '+sec.minutes+'m</small></div>'+
+        '<p>'+esc(sec.desc)+(sr?'<br><b>Terbaik: '+sr.best+'%</b> (terakhir '+sr.last+'%)':'')+'</p>'+
+        '<div class="secacts"><a class="btn sm" href="#/ujian/'+esc(ex.id)+'/practice/'+esc(sec.id)+'" style="display:grid;place-items:center">Latihan + Bahas</a>'+
+        '<a class="ghost sm" href="#/ujian/'+esc(ex.id)+'/timed/'+esc(sec.id)+'" style="display:grid;place-items:center">Tes Berwaktu</a></div></div>';
+    }).join('');
+}
+function startExam(examId,mode,secId){
+  const ex=EXAM_MAP[examId]; if(!ex)return false;
+  let secs=ex.sections;
+  if(mode==='practice'||mode==='timed'){
+    const s=ex.sections.find(x=>x.id===secId); if(!s)return false; secs=[s];
+  }else if(mode!=='full')return false;
+  const items=[];
+  secs.forEach(s=>s.questions.forEach((q,qi)=>items.push({sec:s,qi,q})));
+  if(!items.length)return false;
+  const totalSec=mode==='practice'?0:secs.reduce((n,s)=>n+s.minutes,0)*60;
+  E={ex,mode,secs,items,i:0,ans:Array(items.length).fill(null),flags:{},checked:{},
+     totalSec,rem:totalSec,started:Date.now(),timer:null,done:false,leaving:false,revFilter:'all',hash:location.hash};
+  preload(items.map(x=>x.q.say).filter(Boolean));
+  Object.keys(SFXF).forEach(sfxEl);
+  $('#exam').hidden=false; document.body.style.overflow='hidden';
+  if(E.timer)clearInterval(E.timer);
+  const tm=$('#etimer');
+  if(totalSec>0){
+    const tick=()=>{
+      if(!E||E.done)return;
+      tm.textContent='⏱ '+fmtTime(E.rem);
+      tm.classList.toggle('warn',E.rem<=300);
+      if(E.rem<=0){clearInterval(E.timer);E.timer=null;finishExam(true);return}
+      E.rem--;
+    };
+    tick(); E.timer=setInterval(tick,1000);
+  }else{
+    tm.textContent='Latihan'; tm.classList.remove('warn');
+  }
+  showExamQ();
+  return true;
+}
+function closeExam(){
+  stopSpeak();
+  if(E&&E.timer)clearInterval(E.timer);
+  E=null; $('#exam').hidden=true; document.body.style.overflow='';
+}
+const midExam=()=>E&&!E.done;
+async function leaveExam(){
+  if(midExam()&&!await ask({em:'📝',title:'Keluar dari simulasi?',text:'Progres pengerjaan ujian ini belum dikumpulkan dan akan hilang.',stay:'Lanjut ujian',go:'Keluar'}))return;
+  if(E)E.leaving=true; location.hash='#/ujian/'+(E?E.ex.id:'');
+}
+$('#ex').onclick=leaveExam;
+function renderExamPills(){
+  const box=$('#epills');
+  if(!E||E.done){box.hidden=true;return}
+  box.hidden=false;
+  box.innerHTML=E.items.map((_,i)=>{
+    let cls='epill';
+    if(i===E.i)cls+=' cur';
+    else if(E.checked[i])cls+=(E.ans[i]===E.items[i].q.a?' ok':' bad');
+    else if(E.ans[i]!=null)cls+=' ans';
+    if(E.flags[i])cls+=' flag';
+    return '<button type="button" class="'+cls+'" data-ei="'+i+'" aria-label="Soal '+(i+1)+'">'+(i+1)+'</button>';
+  }).join('');
+  const cur=$('.epill.cur',box); if(cur)cur.scrollIntoView({inline:'center',block:'nearest'});
+  $$('.epill',box).forEach(b=>b.onclick=()=>{E.i=+b.dataset.ei;showExamQ()});
+}
+function showExamQ(){
+  if(!E||E.done)return;
+  stopSpeak();
+  const it=E.items[E.i], q=it.q, n=E.items.length, chosen=E.ans[E.i], chk=!!E.checked[E.i];
+  $('#etitle').textContent=it.sec.title;
+  renderExamPills();
+  const numLab=['1','2','3','4'];
+  let html='<div class="emondai"><span>'+esc(q.mondai)+'</span><span>Soal '+(E.i+1)+' / '+n+(E.flags[E.i]?' · 🚩':'')+'</span></div>'+
+    '<p class="einst">'+esc(q.inst)+'</p>';
+  if(q.passage)html+='<div class="epassage" lang="ja">'+q.passage+'</div>';
+  if(q.say)html+='<div class="eaudio"><button class="say" type="button" data-say="'+esc(q.say)+'" aria-label="Putar audio soal">'+SPK+'</button>'+
+    '<div><b>Audio Percakapan</b><small>Tekan tombol biru untuk mendengarkan (bisa diputar ulang).</small></div></div>';
+  html+='<div class="eq" lang="ja">'+q.q+'</div><div class="eopts">'+
+    q.opts.map((opt,oi)=>{
+      let cls='eopt';
+      if(chk){ if(oi===q.a)cls+=' ok'; else if(oi===chosen)cls+=' bad'; }
+      else if(oi===chosen)cls+=' sel';
+      return '<button type="button" class="'+cls+'" data-eo="'+oi+'"'+(chk?' disabled':'')+'>'+
+        '<span class="enum">'+(numLab[oi]||oi+1)+'</span><span class="etxt" lang="ja">'+opt+'</span></button>';
+    }).join('')+'</div>';
+  if(chk){
+    const ok=chosen===q.a;
+    html+='<div class="efeed '+(ok?'ok':'bad')+'"><div class="efeed-h">'+(ok?'Benar!':'Belum tepat — Jawaban benar: '+(q.a+1))+'</div>'+
+      (q.script?'<div class="escript" lang="ja">'+q.script+'</div>':'')+
+      '<div>'+q.exp+'</div></div>';
+  }
+  const eb=$('#ebody'); eb.innerHTML=html; eb.scrollTop=0;
+  $$('.eopt',eb).forEach(b=>b.onclick=()=>{
+    if(E.checked[E.i])return;
+    E.ans[E.i]=+b.dataset.eo;
+    showExamQ();
+  });
+  const ft=$('#efoot-in');
+  if(E.mode==='practice'){
+    const prevBtn='<button type="button" class="ebtn-ic" id="eprev"'+(E.i===0?' disabled':'')+' aria-label="Soal sebelumnya">‹</button>';
+    let mainBtn='';
+    if(!chk)mainBtn='<button type="button" class="btn" id="echeck"'+(chosen==null?' disabled':'')+'>Periksa Jawaban</button>';
+    else if(E.i<n-1)mainBtn='<button type="button" class="btn" id="enext">Berikutnya ›</button>';
+    else mainBtn='<button type="button" class="btn" id="efin">Lihat Hasil</button>';
+    const finLink=Object.keys(E.checked).length>0&&E.i<n-1?'<button type="button" class="ebtn-ic" id="efin2" title="Akhiri latihan">Hasil</button>':'';
+    ft.innerHTML=prevBtn+mainBtn+finLink;
+    $('#eprev').onclick=()=>{if(E.i>0){E.i--;showExamQ()}};
+    if($('#echeck'))$('#echeck').onclick=()=>{
+      E.checked[E.i]=true;
+      sfx(E.ans[E.i]===q.a?'ok':'bad');
+      showExamQ();
+    };
+    if($('#enext'))$('#enext').onclick=()=>{E.i++;showExamQ()};
+    if($('#efin'))$('#efin').onclick=()=>finishExam(false);
+    if($('#efin2'))$('#efin2').onclick=()=>finishExam(false);
+  }else{
+    const ansN=E.ans.filter(x=>x!=null).length;
+    ft.innerHTML='<button type="button" class="ebtn-ic" id="eprev"'+(E.i===0?' disabled':'')+' aria-label="Soal sebelumnya">‹</button>'+
+      '<button type="button" class="ebtn-ic'+(E.flags[E.i]?' on':'')+'" id="eflag" aria-label="Tandai ragu-ragu">🚩</button>'+
+      '<button type="button" class="ebtn-ic" id="enext"'+(E.i===n-1?' disabled':'')+' aria-label="Soal berikutnya">›</button>'+
+      '<button type="button" class="btn" id="esub">Selesai ('+ansN+'/'+n+')</button>';
+    $('#eprev').onclick=()=>{if(E.i>0){E.i--;showExamQ()}};
+    $('#eflag').onclick=()=>{if(E.flags[E.i])delete E.flags[E.i];else E.flags[E.i]=true;showExamQ()};
+    $('#enext').onclick=()=>{if(E.i<n-1){E.i++;showExamQ()}};
+    $('#esub').onclick=async()=>{
+      const missN=n-ansN, flagN=Object.keys(E.flags).length;
+      const msg=(missN?missN+' soal belum dijawab. ':'Semua '+n+' soal sudah dijawab. ')+(flagN?flagN+' soal masih ditandai ragu-ragu. ':'')+'Yakin kumpulkan sekarang?';
+      if(await ask({em:'📋',title:'Kumpulkan jawaban?',text:msg,stay:'Periksa lagi',go:'Kumpulkan'}))finishExam(false);
+    };
+  }
+}
+function finishExam(timeout){
+  if(!E||E.done)return;
+  E.done=true;
+  if(E.timer){clearInterval(E.timer);E.timer=null}
+  stopSpeak();
+  const n=E.items.length, elapsed=Math.round((Date.now()-E.started)/1000);
+  const usedSec=E.totalSec>0?Math.min(E.totalSec,E.totalSec-E.rem):elapsed;
+  let correct=0;
+  E.items.forEach((it,i)=>{if(E.ans[i]===it.q.a)correct++});
+  const acc=Math.round(correct/n*100);
+  let totalScore=0, passed=false, groupResults=[];
+  if(E.mode==='full'){
+    groupResults=E.ex.scoreGroups.map(g=>{
+      let gc=0, gt=0;
+      E.items.forEach((it,i)=>{if(it.sec.scoreGroup===g.id){gt++;if(E.ans[i]===it.q.a)gc++}});
+      const score=gt?Math.round((gc/gt)*g.max):0;
+      return {id:g.id,title:g.title,max:g.max,pass:g.pass,score,ok:score>=g.pass,gc,gt};
+    });
+    totalScore=groupResults.reduce((s,g)=>s+g.score,0);
+    passed=totalScore>=E.ex.passTotal&&groupResults.every(g=>g.ok);
+  }
+  const xp=E.mode==='full'?(passed?50:30):15;
+  if(S.day!==today()){S.day=today();S.dayXp=0}
+  const y=new Date();y.setDate(y.getDate()-1);
+  if(S.last!==today()){S.streak=S.last===dayStr(y)?S.streak+1:1;S.last=today()}
+  S.xp+=xp; S.dayXp+=xp;
+  if(!S.exams||typeof S.exams!=='object')S.exams={};
+  const prev=S.exams[E.ex.id]||{best:0,last:null,passed:false,lastPassed:false,tries:0,at:0,groups:null,secs:{}};
+  if(E.mode==='full'){
+    S.exams[E.ex.id]={
+      best:Math.max(prev.best||0,totalScore),last:totalScore,
+      passed:!!(prev.passed||passed),lastPassed:passed,
+      tries:(prev.tries||0)+1,at:Date.now(),
+      groups:groupResults.map(g=>({id:g.id,s:g.score,p:g.ok})),secs:prev.secs||{}
+    };
+  }else{
+    const sid=E.secs[0].id, ps=(prev.secs&&prev.secs[sid])||{best:0,last:0,tries:0};
+    const secs=Object.assign({},prev.secs||{},{[sid]:{best:Math.max(ps.best||0,acc),last:acc,tries:(ps.tries||0)+1}});
+    S.exams[E.ex.id]=Object.assign({},prev,{at:Date.now(),secs});
+  }
+  save();
+  sfx(E.mode==='full'?(passed?'ok':'bad'):(acc>=60?'ok':'bad'));
+  E.result={correct,n,acc,usedSec,totalScore,passed,groupResults,xp,timeout};
+  renderExamResult();
+}
+function renderExamResult(){
+  if(!E||!E.result)return;
+  const r=E.result;
+  $('#epills').hidden=true;
+  $('#etimer').textContent='Selesai'; $('#etimer').classList.remove('warn');
+  $('#etitle').textContent=E.ex.title+(E.mode==='full'?' · Hasil':' · '+E.secs[0].title);
+  let head='<div class="eres-head">';
+  if(r.timeout)head+='<p style="margin:0 0 8px;font-size:13px;font-weight:700;color:var(--bad)">Waktu habis! Jawaban otomatis dikumpulkan.</p>';
+  if(E.mode==='full'){
+    const hasPartPass=E.ex.scoreGroups.some(g=>g.pass>0);
+    head+='<span class="eres-status '+(r.passed?'ok':'no')+'">'+(r.passed?'合格 · LULUS':'不合格 · BELUM LULUS')+'</span>'+
+      '<div class="eres-score">'+r.totalScore+' <small>/ '+E.ex.maxTotal+'</small></div>'+
+      '<p style="margin:0;color:var(--muted);font-size:14px">'+(r.passed?(hasPartPass?'Selamat! Skor total dan semua bagian memenuhi batas lulus '+E.ex.code+'.':'Selamat! Skor total memenuhi batas lulus '+E.ex.code+'.'):(hasPartPass?'Syarat lulus: total ≥ '+E.ex.passTotal+' dan tiap bagian memenuhi skor minimal.':'Syarat lulus: total skor ≥ '+E.ex.passTotal+' / '+E.ex.maxTotal+'.'))+'</p>';
+  }else{
+    head+='<span class="eres-status '+(r.acc>=60?'ok':'no')+'">'+(r.acc>=60?'BAGIAN TUNTAS':'PERLU LATIHAN LAGI')+'</span>'+
+      '<div class="eres-score">'+r.acc+'<small>%</small></div>';
+  }
+  head+='<div class="stats"><div class="chip"><b>'+r.correct+'/'+r.n+'</b><small>benar</small></div>'+
+    '<div class="chip"><b>'+fmtTime(r.usedSec)+'</b><small>waktu</small></div>'+
+    '<div class="chip"><b>+'+r.xp+'</b><small>XP</small></div></div></div>';
+  if(E.mode==='full'){
+    head+='<div class="egroups">'+r.groupResults.map(g=>'<div class="egroup"><div class="egroup-top"><span>'+esc(g.title)+'</span><span>'+g.score+' / '+g.max+'</span></div>'+
+      '<div class="meter"><i style="width:'+Math.round(g.score/g.max*100)+'%;background:'+(g.pass>0?(g.ok?'var(--ok)':'var(--bad)'):'var(--u1)')+'"></i></div>'+
+      '<div class="egroup-sub"><span>Benar '+g.gc+' dari '+g.gt+' soal</span><span>'+(g.pass>0?('Min. '+g.pass+' · '+(g.ok?'Memenuhi':'Kurang')):(g.gt?Math.round(g.gc/g.gt*100):0)+'% tepat')+'</span></div></div>').join('')+'</div>';
+  }
+  const wrongN=r.n-r.correct;
+  const f=E.revFilter;
+  const list=E.items.map((it,i)=>({it,i,ok:E.ans[i]===it.q.a})).filter(x=>f==='all'||(f==='bad'?!x.ok:x.ok));
+  const rev='<h2 class="sec">Pembahasan Soal</h2>'+
+    '<div class="erev-tabs"><button type="button" data-rf="all" aria-pressed="'+(f==='all')+'">Semua ('+r.n+')</button>'+
+    '<button type="button" data-rf="bad" aria-pressed="'+(f==='bad')+'">Salah/Kosong ('+wrongN+')</button>'+
+    '<button type="button" data-rf="ok" aria-pressed="'+(f==='ok')+'">Benar ('+r.correct+')</button></div>'+
+    '<div class="erev-list">'+(list.length?list.map(({it,i,ok})=>{
+      const q=it.q, u=E.ans[i];
+      return '<div class="erev-card"><div class="erev-card-h"><span>No. '+(i+1)+' · '+esc(q.mondai)+'</span>'+
+        '<span class="badge '+(ok?'ok':'no')+'">'+(u==null?'Tidak dijawab':(ok?'Benar':'Salah'))+'</span></div>'+
+        (q.passage?'<details><summary>Lihat teks bacaan</summary><div style="padding:10px 14px;font-size:14.5px;line-height:1.95" lang="ja">'+q.passage+'</div></details>':'')+
+        (q.say?'<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><button class="say sm" type="button" data-say="'+esc(q.say)+'" aria-label="Putar audio">'+SPK+'</button><small style="color:var(--muted)">Putar ulang audio</small></div>':'')+
+        (q.script?'<div class="escript" lang="ja">'+q.script+'</div>':'')+
+        '<div class="erev-q" lang="ja">'+q.q+'</div>'+
+        '<div class="erev-ans">'+(u!=null&&!ok?'<div>Jawabanmu: <span lang="ja">'+q.opts[u]+'</span></div>':'')+
+        '<div><b>Jawaban benar:</b> <span lang="ja">'+q.opts[q.a]+'</span></div></div>'+
+        '<div class="erev-exp">'+q.exp+'</div></div>';
+    }).join(''):'<p class="empty">Tidak ada soal pada filter ini.</p>')+'</div>';
+  const eb=$('#ebody'); eb.innerHTML=head+rev; eb.scrollTop=0;
+  $$('.erev-tabs button',eb).forEach(b=>b.onclick=()=>{E.revFilter=b.dataset.rf;renderExamResult()});
+  $('#efoot-in').innerHTML='<button type="button" class="btn" id="eclose">Kembali ke Detail Ujian</button>';
+  $('#eclose').onclick=()=>{location.hash='#/ujian/'+E.ex.id};
+}
+
 /* ---------- global clicks ---------- */
 const root=document.documentElement, savedT=store.get('theme'); if(savedT)root.dataset.theme=savedT;
 $('#theme').onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;root.dataset.theme=dark?'light':'dark';store.set('theme',root.dataset.theme)};
@@ -575,7 +945,7 @@ if(store.get('mute')==='1')document.body.classList.add('mute');
 const syncMute=()=>{const on=document.body.classList.contains('mute');$$('.mutebtn').forEach(b=>{b.setAttribute('aria-pressed',on);b.setAttribute('aria-label',on?'Nyalakan suara pelafalan':'Matikan suara pelafalan');b.title=on?'Suara pelafalan mati':'Suara pelafalan nyala'})};
 syncMute();
 $$('.mutebtn').forEach(b=>b.onclick=()=>{const on=document.body.classList.toggle('mute');store.set('mute',on?'1':'0');if(on){try{if(playing)playing.pause();speechSynthesis.cancel()}catch(e){}}syncMute()});
-$('#furi').onclick=()=>store.set('nofuri',document.body.classList.toggle('nofuri')?'1':'0');
+$$('.furibtn').forEach(b=>b.onclick=()=>store.set('nofuri',document.body.classList.toggle('nofuri')?'1':'0'));
 if(store.get('hide')==='1')document.body.classList.add('hide');
 const syncHide=()=>{const on=document.body.classList.contains('hide');$$('[data-hide]').forEach(b=>{b.textContent=on?'Tampilkan arti':'Sembunyikan arti';b.setAttribute('aria-pressed',on)})};
 syncHide();
@@ -590,16 +960,22 @@ document.addEventListener('click',e=>{
 $$('.lesson').forEach(pg=>{const n=pg.id.slice(4), a=document.createElement('a');a.className='practice';a.href='#/q/p'+n+'/0';a.innerHTML='<span>Latihan Pelajaran '+n+'</span><span>›</span>';$('.lhead h1',pg).after(a)});
 
 /* ---------- router ---------- */
-const pages=$$('.page'), home=$('#pg-home'); let current=null, curPart=null;
+const pages=$$('.page'), home=$('#pg-home'); let current=null, curPart=null, curExam=null;
 function route(){
-  const h=location.hash.replace(/^#\/?/,'').split('/'); let id='home', part=null, item=null;
+  const h=location.hash.replace(/^#\/?/,'').split('/'); let id='home', part=null, item=null, examId=null;
   if(h[0]==='q'){ if(Q&&Q.hash===location.hash)return; if(startQuiz(h[1],h[2]))return; location.replace('#/'); return }
+  if(h[0]==='ujian'&&h[1]&&h[2]){ if(E&&E.hash===location.hash)return; if(startExam(h[1],h[2],h[3]))return; location.replace('#/ujian'); return }
   if(midSession()&&!Q.leaving){ const to=location.hash; location.replace(Q.hash);
     ask({em:'😢',title:'Tunggu, jangan pergi dulu!',text:'Kalau keluar sekarang, progres sesi ini akan hilang.',stay:'Lanjut belajar',go:'Keluar'})
       .then(go=>{if(go){Q.leaving=true;location.hash=to}}); return }
+  if(midExam()&&!E.leaving){ const to=location.hash; location.replace(E.hash);
+    ask({em:'📝',title:'Keluar dari simulasi?',text:'Progres pengerjaan ujian ini belum dikumpulkan dan akan hilang.',stay:'Lanjut ujian',go:'Keluar'})
+      .then(go=>{if(go){E.leaving=true;location.hash=to}}); return }
   if(Q)closeQuiz();
+  if(E)closeExam();
   if(h[0]==='p'&&h[1]){id='p'+h[1];part=h[2]||store.get('tab')||'kosa';item=h[3]}
   else if(h[0]==='b'&&h[1])id='b'+h[1];
+  else if(h[0]==='ujian'){id='ujian';examId=h[1]||null}
   else if(h[0]==='buku'||h[0]==='cari'||h[0]==='akun')id=h[0];
   else if((h[0]==='reset'||h[0]==='verify')&&h[1]){
     // Token dari link email: simpan, lalu hapus dari URL supaya tidak tertinggal di riwayat.
@@ -616,11 +992,15 @@ function route(){
     const u=UNIT['p'+h[1]], pr=$('.practice',pg);
     if(u&&pr){const nx=sessIds(u).find(x=>!(x in S.done))||u.id+'-0';pr.href='#/q/'+nx.replace('-','/')}
   }
-  const top=id==='home'||id==='buku'||id==='cari'||id==='akun';
+  const top=id==='home'||id==='buku'||id==='cari'||id==='akun'||(id==='ujian'&&!examId);
   if(id==='akun')renderAkun();
-  $('#title').textContent=pg.dataset.title; $('#back').hidden=top;
-  $$('#bnav a').forEach(a=>a.dataset.nav===(top?id:'buku')?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
-  document.title=(id==='home'?'':pg.dataset.title+' — ')+'Nihongoku';
+  if(id==='ujian')renderUjian(examId);
+  const pageTitle=(id==='ujian'&&examId&&EXAM_MAP[examId])?EXAM_MAP[examId].title:pg.dataset.title;
+  $('#title').textContent=pageTitle;
+  const bk=$('#back'); bk.hidden=top; bk.href=id==='ujian'?'#/ujian':'#/buku';
+  bk.setAttribute('aria-label',id==='ujian'?'Kembali ke Daftar Ujian':'Kembali ke Buku');
+  $$('#bnav a').forEach(a=>a.dataset.nav===(id==='ujian'?'ujian':(top?id:'buku'))?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+  document.title=(id==='home'?'':pageTitle+' — ')+'Nihongoku';
   const target=item!=null&&document.getElementById('v-'+h[1]+'-'+item);
   if(id==='home'){
     const nx=renderHome(), n=nx&&document.getElementById('n-'+nx);
@@ -629,10 +1009,10 @@ function route(){
     target.classList.add('hit','show');target.scrollIntoView({block:'center'});setTimeout(()=>target.classList.remove('hit'),1800);
   }else if(samePage&&part&&part!==curPart){
     const y=$('.tabs',pg).offsetTop-$('.bar').offsetHeight; if(scrollY>y)scrollTo(0,y);
-  }else if(!samePage)scrollTo(0,0);
+  }else if(!samePage||(id==='ujian'&&examId!==curExam))scrollTo(0,0);
   if(id==='buku'){const n=store.get('last'),a=$('#resume');if(n&&UNIT['p'+n]){a.href='#/p/'+n;a.innerHTML='<span>Lanjutkan baca Pelajaran '+n+'</span><span>›</span>';a.hidden=false}}
   if(id==='cari'&&!samePage)$('#q').focus({preventScroll:true});
-  current=pg;curPart=part;
+  current=pg;curPart=part;curExam=examId;
 }
 /* ---------- akun ---------- */
 let USER=null, ACC={}, API=null, pushT=null, syncMsg='', pending=null, flash=null;
@@ -649,6 +1029,16 @@ function mergeP(a,b){
   o.xp=(a.xp||0)+(b.xp||0);
   keys.forEach(k=>o.done[k]=Math.max((a.done||{})[k]||0,(b.done||{})[k]||0));
   [a.miss||{},b.miss||{}].forEach(m=>Object.keys(m).forEach(k=>o.miss[k]=(o.miss[k]||0)+m[k]));
+  const exA=a.exams||{}, exB=b.exams||{};
+  new Set([...Object.keys(exA),...Object.keys(exB)]).forEach(k=>{
+    const x=exA[k]||{}, y=exB[k]||{}, latest=(x.at||0)>=(y.at||0)?x:y;
+    const secs={};
+    new Set([...Object.keys(x.secs||{}),...Object.keys(y.secs||{})]).forEach(sk=>{
+      const sx=(x.secs||{})[sk]||{}, sy=(y.secs||{})[sk]||{};
+      secs[sk]={best:Math.max(sx.best||0,sy.best||0),last:((x.at||0)>=(y.at||0)?sx.last:sy.last)??sx.last??sy.last??0,tries:(sx.tries||0)+(sy.tries||0)};
+    });
+    o.exams[k]={best:Math.max(x.best||0,y.best||0),last:latest.last??null,passed:!!(x.passed||y.passed),lastPassed:!!latest.lastPassed,tries:(x.tries||0)+(y.tries||0),at:Math.max(x.at||0,y.at||0),groups:latest.groups||null,secs};
+  });
   const late=(a.last||'')>=(b.last||'')?a:b; o.last=late.last||''; o.streak=late.streak||0;
   if(a.day&&a.day===b.day){o.day=a.day;o.dayXp=(a.dayXp||0)+(b.dayXp||0)}else{const d=(a.day||'')>=(b.day||'')?a:b;o.day=d.day||'';o.dayXp=d.dayXp||0}
   return o;
@@ -657,6 +1047,7 @@ function adopt(d,fromForm){
   const srv=d.progress;
   if(fromForm&&!S.owner&&srv)S=mergeP(S,srv);                       // progres tamu digabung ke akun
   else if(srv&&(S.owner!==d.username||(srv.t||0)>=(S.t||0)))S=Object.assign(blank(),srv);
+  if(!S.exams||typeof S.exams!=='object')S.exams={};
   const needPush=!srv||fromForm||(S.t||0)>(srv.t||0);
   USER=d.username; ACC={email:d.email,verified:d.emailVerified}; S.owner=USER; if(needPush)S.t=Date.now(); persist();
   if(needPush)queuePush(0);
@@ -751,7 +1142,7 @@ function renderAkun(){
     (reg?'<label>Ulangi password<input name="password2" type="password" autocomplete="new-password" required></label>':'')+
     '<p class="err" role="alert" hidden></p><button class="btn" type="submit">'+(reg?'Buat akun':'Masuk')+'</button></form>'+
     (reg?'<p class="note">Username 3–20 karakter: huruf kecil, angka, atau garis bawah. Kami kirim link konfirmasi ke emailmu.</p>':'<button class="link" type="button" id="forgot" style="margin-top:12px">Lupa password?</button>')+
-    (Object.keys(S.done).length?'<p class="note">Progres yang sudah kamu kerjakan di perangkat ini akan digabung ke akun.</p>':'');
+    (Object.keys(S.done).length||Object.keys(S.exams||{}).length?'<p class="note">Progres yang sudah kamu kerjakan di perangkat ini akan digabung ke akun.</p>':'');
   $$('.seg button',box).forEach(b=>b.onclick=()=>{mode=b.dataset.m;renderAkun();$('input',box).focus()});
   if($('#forgot'))$('#forgot').onclick=()=>{mode='lupa';renderAkun();$('input',box).focus()};
   bindForm($('#af'),f=>{
@@ -764,7 +1155,7 @@ function renderAkun(){
       return null;
     },
     f=>{const u=f.username.value.trim().toLowerCase(), pw=f.password.value;
-      return api(reg?'register':'login',reg?{username:u,email:f.email.value.trim(),password:pw,progress:Object.keys(S.done).length?S:null}:{username:u,password:pw})},
+      return api(reg?'register':'login',reg?{username:u,email:f.email.value.trim(),password:pw,progress:(Object.keys(S.done).length||Object.keys(S.exams||{}).length)?S:null}:{username:u,password:pw})},
     r=>{if(reg){S.owner=r.d.username;flash={ok:true,text:'Akun dibuat! Cek email '+r.d.email+' untuk konfirmasi.'}}  // progres tamu sudah dikirim saat daftar
       adopt(r.d,!reg); renderAkun()});
 }
@@ -773,7 +1164,7 @@ async function boot(){
   API=r.ok||r.status===401;
   if(r.ok)adopt(r.d,false);
   else if(r.status===401&&S.owner){S=blank();persist()}  // sesi habis: jangan tampilkan progres akun lain
-  if(current===home)renderHome(); if(current&&current.id==='pg-akun')renderAkun();
+  if(current===home)renderHome(); if(current&&current.id==='pg-akun')renderAkun(); if(current&&current.id==='pg-ujian')renderUjian(curExam);
 }
 
 addEventListener('hashchange',route);route();boot();

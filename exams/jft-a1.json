@@ -1,0 +1,451 @@
+{
+  "id": "jft-a1",
+  "order": 2,
+  "code": "JFT A1",
+  "title": "JFT-Basic A1",
+  "subtitle": "Japan Foundation Test for Basic Japanese · Tingkat A1",
+  "desc": "Simulasi ujian kemampuan komunikasi praktis kehidupan sehari-hari di Jepang tingkat dasar (CEFR A1, setara JLPT N5). Mencakup 4 bagian: Huruf & Kosa Kata, Percakapan & Ungkapan, Mendengarkan, serta Bacaan.",
+  "passTotal": 160,
+  "maxTotal": 250,
+  "scoreGroups": [
+    {
+      "id": "script",
+      "title": "文字と語彙 (Huruf & Kosa Kata)",
+      "max": 62,
+      "pass": 0
+    },
+    {
+      "id": "conv",
+      "title": "会話と表現 (Percakapan & Ungkapan)",
+      "max": 63,
+      "pass": 0
+    },
+    {
+      "id": "listen",
+      "title": "聴解 (Mendengarkan)",
+      "max": 62,
+      "pass": 0
+    },
+    {
+      "id": "read",
+      "title": "読解 (Pemahaman Bacaan)",
+      "max": 63,
+      "pass": 0
+    }
+  ],
+  "sections": [
+    {
+      "id": "script-vocab",
+      "title": "文字と語彙 (Huruf & Kosa Kata)",
+      "desc": "Menguji makna kata sehari-hari, pemakaian kata dalam kalimat, cara baca kanji, dan penulisan kanji.",
+      "minutes": 15,
+      "scoreGroup": "script",
+      "questions": [
+        {
+          "mondai": "Bagian 1 · Makna Kata",
+          "inst": "Pilih arti yang paling tepat untuk kata yang dicetak tebal.",
+          "q": "スーパーで **やすくて** おいしい りんごを 買{か}いました。",
+          "opts": ["mahal", "murah", "manis", "segar"],
+          "a": 1,
+          "exp": "**やすい** (安{やす}い) berarti **murah**. Lawannya adalah たかい (mahal)."
+        },
+        {
+          "mondai": "Bagian 1 · Makna Kata",
+          "inst": "Pilih arti yang paling tepat untuk kata yang dicetak tebal.",
+          "q": "まいにち バスに **のって** 会社{かいしゃ}へ 行{い}きます。",
+          "opts": ["turun", "menunggu", "naik", "berjalan"],
+          "a": 2,
+          "exp": "**のります** (乗{の}ります) berarti **naik** kendaraan, berpasangan dengan partikel に."
+        },
+        {
+          "mondai": "Bagian 1 · Makna Kata",
+          "inst": "Pilih arti yang paling tepat untuk kata yang dicetak tebal.",
+          "q": "すみません、トイレを **かして** ください。",
+          "opts": ["meminjamkan", "membersihkan", "menunjukkan", "membukakan"],
+          "a": 0,
+          "exp": "**かす** (貸{か}す) berarti **meminjamkan** (mengizinkan memakai). Ungkapan ini sering dipakai untuk meminta izin memakai toilet."
+        },
+        {
+          "mondai": "Bagian 1 · Pemakaian Kata",
+          "inst": "Pilih kata yang paling tepat untuk mengisi bagian kosong ( 　 ).",
+          "q": "すみません、この 店{みせ}の ( 　 ) は どこですか。",
+          "opts": ["いりぐち", "つくえ", "けしゴム", "くつ"],
+          "a": 0,
+          "exp": "**いりぐち** (入口{いりぐち}) berarti **pintu masuk**. Cocok untuk menanyakan letak pintu masuk toko."
+        },
+        {
+          "mondai": "Bagian 1 · Pemakaian Kata",
+          "inst": "Pilih kata yang paling tepat untuk mengisi bagian kosong ( 　 ).",
+          "q": "雨{あめ}が 降{ふ}って いますから、( 　 ) を 持{も}って 行{い}きます。",
+          "opts": ["めがね", "かさ", "かぎ", "さいふ"],
+          "a": 1,
+          "exp": "Saat hujan turun, benda yang dibawa adalah **かさ** (傘{かさ} = payung)."
+        },
+        {
+          "mondai": "Bagian 1 · Pemakaian Kata",
+          "inst": "Pilih kata yang paling tepat untuk mengisi bagian kosong ( 　 ).",
+          "q": "今日{きょう}は とても ( 　 ) ですから、コートを 着{き}ます。",
+          "opts": ["あつい", "さむい", "あまい", "からい"],
+          "a": 1,
+          "exp": "Karena memakai mantel (コートを 着{き}ます), berarti cuacanya **さむい** (寒{さむ}い = dingin)."
+        },
+        {
+          "mondai": "Bagian 1 · Cara Baca Kanji",
+          "inst": "Pilih cara baca hiragana yang tepat untuk kata yang bergaris bawah.",
+          "q": "あそこに __入口__ が あります。",
+          "opts": ["いりぐち", "でぐち", "にゅうこう", "いりくち"],
+          "a": 0,
+          "exp": "入口{いりぐち} dibaca **いりぐち** (pintu masuk). Lawannya 出口{でぐち} (pintu keluar)."
+        },
+        {
+          "mondai": "Bagian 1 · Cara Baca Kanji",
+          "inst": "Pilih cara baca hiragana yang tepat untuk kata yang bergaris bawah.",
+          "q": "__来月__ 日本{にほん}へ 行{い}きます。",
+          "opts": ["こんげつ", "せんげつ", "らいげつ", "まいげつ"],
+          "a": 2,
+          "exp": "来月{らいげつ} dibaca **らいげつ** (bulan depan). 今月{こんげつ} = bulan ini, 先月{せんげつ} = bulan lalu."
+        },
+        {
+          "mondai": "Bagian 1 · Penulisan Kanji",
+          "inst": "Pilih penulisan kanji yang tepat untuk kata yang bergaris bawah.",
+          "q": "あしたは 仕事{しごと}が __やすみ__ です。",
+          "opts": ["休み", "体み", "作り", "入り"],
+          "a": 0,
+          "exp": "**やすみ** (libur/istirahat) ditulis **休み**."
+        },
+        {
+          "mondai": "Bagian 1 · Penulisan Kanji",
+          "inst": "Pilih penulisan kanji yang tepat untuk kata yang bergaris bawah.",
+          "q": "あとで 友達{ともだち}に __でんわ__ を かけます。",
+          "opts": ["電気", "電車", "電話", "天気"],
+          "a": 2,
+          "exp": "**でんわ** (telepon) ditulis **電話**. 電気{でんき} = listrik, 電車{でんしゃ} = kereta."
+        }
+      ]
+    },
+    {
+      "id": "conv-expr",
+      "title": "会話と表現 (Percakapan & Ungkapan)",
+      "desc": "Menguji ungkapan komunikasi praktis sehari-hari, salam, permintaan izin, dan tata bahasa dalam percakapan.",
+      "minutes": 15,
+      "scoreGroup": "conv",
+      "questions": [
+        {
+          "mondai": "Bagian 2 · Ungkapan Percakapan",
+          "inst": "Pilih ungkapan yang tepat untuk melengkapi percakapan berikut.",
+          "q": "A：佐藤{さとう}さん、( 　 )。\nB：おはようございます。",
+          "opts": ["おはようございます", "おやすみなさい", "さようなら", "いただきます"],
+          "a": 0,
+          "exp": "Karena B membalas *おはようございます*, sapaan pagi yang diucapkan A adalah **おはようございます**."
+        },
+        {
+          "mondai": "Bagian 2 · Ungkapan Percakapan",
+          "inst": "Pilih ungkapan yang tepat untuk melengkapi percakapan berikut.",
+          "q": "A：荷物{にもつ}、重{おも}そうですね。持{も}ちましょう。\nB：( 　 )。\nA：いいえ、どういたしまして。",
+          "opts": ["ありがとうございます", "ごめんなさい", "いってきます", "おねがいします"],
+          "a": 0,
+          "exp": "B merespons bantuan A dengan **ありがとうございます** (terima kasih), sehingga A menjawab *どういたしまして* (sama-sama)."
+        },
+        {
+          "mondai": "Bagian 2 · Ungkapan Percakapan",
+          "inst": "Pilih ungkapan yang tepat untuk melengkapi percakapan berikut.",
+          "q": "A：もう 5時{ごじ}ですね。( 　 )。\nB：お疲{つか}れさまでした。",
+          "opts": ["お先{さき}に 失礼{しつれい}します", "ただいま", "おじゃまします", "はじめまして"],
+          "a": 0,
+          "exp": "Saat pulang kerja lebih dulu di Jepang, ucapkan **お先{さき}に 失礼{しつれい}します** (permisi pulang duluan)."
+        },
+        {
+          "mondai": "Bagian 2 · Ungkapan Percakapan",
+          "inst": "Pilih ungkapan yang tepat untuk melengkapi percakapan berikut.",
+          "q": "A：いらっしゃい。どうぞ 入{はい}って ください。\nB：( 　 )。",
+          "opts": ["おじゃまします", "いってらっしゃい", "ごちそうさまでした", "お元気{げんき}ですか"],
+          "a": 0,
+          "exp": "Saat masuk ke rumah orang lain, ucapkan **おじゃまします** (permisi mengganggu)."
+        },
+        {
+          "mondai": "Bagian 2 · Ungkapan Percakapan",
+          "inst": "Pilih ungkapan yang tepat untuk melengkapi percakapan berikut.",
+          "q": "A：( 　 )、遅{おそ}く なりました。\nB：大丈夫{だいじょうぶ}ですよ。",
+          "opts": ["すみません", "おめでとう", "ありがとう", "さようなら"],
+          "a": 0,
+          "exp": "Meminta maaf karena datang terlambat memakai **すみません** (*すみません、遅{おそ}く なりました*)."
+        },
+        {
+          "mondai": "Bagian 2 · Tata Bahasa Percakapan",
+          "inst": "Pilih kata yang tepat untuk melengkapi percakapan berikut.",
+          "q": "客{きゃく}：すみません、この パンは ( 　 ) ですか。\n店員{てんいん}：150円{ひゃくごじゅうえん}です。",
+          "opts": ["いくつ", "いくら", "いつ", "どこ"],
+          "a": 1,
+          "exp": "Karena pelayan menjawab harga (150 yen), kata tanya yang tepat adalah **いくら** (berapa harganya)."
+        },
+        {
+          "mondai": "Bagian 2 · Tata Bahasa Percakapan",
+          "inst": "Pilih ungkapan yang tepat untuk melengkapi percakapan berikut.",
+          "q": "A：おなかが すきましたね。いっしょに 昼{ひる}ごはんを ( 　 )。\nB：いいですね。行{い}きましょう。",
+          "opts": ["食{た}べませんか", "食{た}べましたか", "食{た}べて います", "食{た}べません"],
+          "a": 0,
+          "exp": "Mengajak seseorang melakukan sesuatu dengan sopan memakai bentuk **～ませんか** (*食{た}べませんか* = mau makan bersama?)."
+        },
+        {
+          "mondai": "Bagian 2 · Tata Bahasa Percakapan",
+          "inst": "Pilih bentuk yang tepat untuk melengkapi percakapan berikut.",
+          "q": "A：すみません、もう 少{すこ}し ゆっくり ( 　 )。\nB：あ、すみません。わかりました。",
+          "opts": ["話{はな}して ください", "話{はな}しました", "話{はな}しません", "話{はな}しますか"],
+          "a": 0,
+          "exp": "Meminta lawan bicara berbicara lebih pelan memakai **～て ください** (*話{はな}して ください*)."
+        },
+        {
+          "mondai": "Bagian 2 · Tata Bahasa Percakapan",
+          "inst": "Pilih bentuk yang tepat untuk melengkapi percakapan berikut.",
+          "q": "A：夏休{なつやす}みに 何{なに}が したいですか。\nB：日本{にほん}の お寺{てら}を ( 　 )。",
+          "opts": ["見{み}たいです", "見{み}て います", "見{み}ないで ください", "見{み}て ください"],
+          "a": 0,
+          "exp": "Pertanyaannya menanyakan keinginan (*何{なに}が したいですか*), maka dijawab dengan **～たいです** (*見{み}たいです* = ingin melihat)."
+        },
+        {
+          "mondai": "Bagian 2 · Tata Bahasa Percakapan",
+          "inst": "Pilih bentuk yang tepat untuk melengkapi percakapan berikut.",
+          "q": "店員{てんいん}：ここは 禁煙{きんえん}ですから、たばこを ( 　 )。\n客{きゃく}：あ、すみません。",
+          "opts": ["吸{す}っても いいです", "吸{す}わないで ください", "吸{す}いたい です", "吸{す}いましょう"],
+          "a": 1,
+          "exp": "Karena area dilarang merokok (禁煙{きんえん}), pelayan meminta pelanggan untuk tidak merokok dengan **～ないで ください** (*吸{す}わないで ください*)."
+        }
+      ]
+    },
+    {
+      "id": "listening",
+      "title": "聴解 (Mendengarkan)",
+      "desc": "Menguji pemahaman informasi penting dari percakapan pendek dan pengumuman kehidupan sehari-hari.",
+      "minutes": 15,
+      "scoreGroup": "listen",
+      "questions": [
+        {
+          "mondai": "Bagian 3 · Pemahaman Audio",
+          "inst": "Dengarkan audio percakapan lalu pilih jawaban yang tepat.",
+          "say": "店{みせ}で 男{おとこ}の人{ひと}が 注文{ちゅうもん}して います。男{おとこ}の人{ひと}は 何{なに}を 頼{たの}みましたか。 …… いらっしゃいませ。ご注文{ちゅうもん}は お決{き}まりですか。 ええと、カレーライスを ひとつ お願{ねが}いします。 お飲{の}み物{もの}は いかがですか。 じゃあ、ホットコーヒーを ください。 …… 男{おとこ}の人{ひと}は 何{なに}を 頼{たの}みましたか。",
+          "script": "店員：いらっしゃいませ。ご注文{ちゅうもん}は お決{き}まりですか。\n男：ええと、カレーライスを ひとつ お願{ねが}いします。\n店員：お飲{の}み物{もの}は いかがですか。\n男：じゃあ、ホットコーヒーを ください。",
+          "q": "男{おとこ}の人{ひと}は 何{なに}を 頼{たの}みましたか。",
+          "opts": [
+            "カレーライスと コーヒー",
+            "カレーライスと お茶{ちゃ}",
+            "ラーメンと コーヒー",
+            "サンドイッチと ジュース"
+          ],
+          "a": 0,
+          "exp": "Pria tersebut memesan satu porsi nasi kari (*カレーライス*) dan kopi panas (*ホットコーヒー*)."
+        },
+        {
+          "mondai": "Bagian 3 · Pemahaman Audio",
+          "inst": "Dengarkan audio percakapan lalu pilih jawaban yang tepat.",
+          "say": "女{おんな}の人{ひと}と 男{おとこ}の人{ひと}が 電話{でんわ}で 話{はな}して います。二人{ふたり}は どこで 会{あ}いますか。 …… もしもし、アディさん？ 今{いま} どこですか。 今{いま} 電車{でんしゃ}の 中{なか}です。もうすぐ 駅{えき}に 着{つ}きます。 どこで 会{あ}いましょうか。 駅{えき}の 東口{ひがしぐち}の 前{まえ}に 本屋{ほんや}が ありますよね。 ええ。 その 本屋{ほんや}の 前{まえ}で 待{ま}って います。 …… 二人{ふたり}は どこで 会{あ}いますか。",
+          "script": "女：もしもし、アディさん？ 今{いま} どこですか。\n男：今{いま} 電車{でんしゃ}の 中{なか}です。もうすぐ 駅{えき}に 着{つ}きます。\n女：どこで 会{あ}いましょうか。\n男：駅{えき}の 東口{ひがしぐち}の 前{まえ}に 本屋{ほんや}が ありますよね。\n女：ええ。\n男：その 本屋{ほんや}の 前{まえ}で 待{ま}って います。",
+          "q": "二人{ふたり}は どこで 会{あ}いますか。",
+          "opts": [
+            "駅{えき}の 西口{にしぐち}",
+            "本屋{ほんや}の 前{まえ}",
+            "電車{でんしゃ}の 中{なか}",
+            "カフェの 中{なか}"
+          ],
+          "a": 1,
+          "exp": "Adi mengatakan akan menunggu di depan toko buku di pintu timur stasiun (**本屋{ほんや}の 前{まえ}**)."
+        },
+        {
+          "mondai": "Bagian 3 · Pemahaman Audio",
+          "inst": "Dengarkan audio percakapan lalu pilih jawaban yang tepat.",
+          "say": "会社{かいしゃ}で 鈴木{すずき}さんと リンさんが 話{はな}して います。リンさんは 何{なに}を 持{も}って 行{い}きますか。 …… リンさん、これから 3階{さんがい}の 会議室{かいぎしつ}へ 行{い}きますよ。 はい。パソコンも 持{も}って 行{い}きますか。 いえ、パソコンは 部屋{へや}に ありますから、大丈夫{だいじょうぶ}です。ノートと ペンだけ 持{も}って 来{き}て ください。 わかりました。 …… リンさんは 何{なに}を 持{も}って 行{い}きますか。",
+          "script": "鈴木：リンさん、これから 3階{さんがい}の 会議室{かいぎしつ}へ 行{い}きますよ。\nリン：はい。パソコンも 持{も}って 行{い}きますか。\n鈴木：いえ、パソコンは 部屋{へや}に ありますから、大丈夫{だいじょうぶ}です。ノートと ペンだけ 持{も}って 来{き}て ください。\nリン：わかりました。",
+          "q": "リンさんは 何{なに}を 持{も}って 行{い}きますか。",
+          "opts": [
+            "パソコンと ペン",
+            "ノートと ペン",
+            "パソコンと ノート",
+            "資料{しりょう}だけ"
+          ],
+          "a": 1,
+          "exp": "Laptop sudah ada di ruang rapat, jadi Suzuki meminta Rin hanya membawa **ノートと ペン** (buku catatan dan pena)."
+        },
+        {
+          "mondai": "Bagian 3 · Pemahaman Audio",
+          "inst": "Dengarkan audio percakapan lalu pilih jawaban yang tepat.",
+          "say": "デパートで 女{おんな}の人{ひと}が 店{みせ}の人{ひと}に 聞{き}いて います。靴{くつ}の 売{う}り場{ば}は 何階{なんがい}ですか。 …… すみません、靴{くつ}を 買{か}いたいんですが、売{う}り場{ば}は どこですか。 靴{くつ}は 4階{よんかい}です。かばんは 3階{さんがい}に あります。 4階{よんかい}ですね。エレベーターは どこですか。 あちらの 右側{みぎがわ}に あります。 …… 靴{くつ}の 売{う}り場{ば}は 何階{なんがい}ですか。",
+          "script": "女：すみません、靴{くつ}を 買{か}いたいんですが、売{う}り場{ば}は どこですか。\n店員：靴{くつ}は 4階{よんかい}です。かばんは 3階{さんがい}に あります。\n女：4階{よんかい}ですね。エレベーターは どこですか。\n店員：あちらの 右側{みぎがわ}に あります。",
+          "q": "靴{くつ}の 売{う}り場{ば}は 何階{なんがい}ですか。",
+          "opts": ["1階{いっかい}", "2階{にかい}", "3階{さんがい}", "4階{よんかい}"],
+          "a": 3,
+          "exp": "Staf toko menyebut bagian penjualan sepatu ada di lantai 4 (**4階{よんかい}**), sedangkan tas di lantai 3."
+        },
+        {
+          "mondai": "Bagian 3 · Pemahaman Audio",
+          "inst": "Dengarkan pengumuman singkat lalu pilih jawaban yang tepat.",
+          "say": "日本語{にほんご}教室{きょうしつ}で 先生{せんせい}が 話{はな}して います。昼休{ひるやす}みは 何時{なんじ}までですか。 …… みなさん、もうすぐ 12時{じゅうにじ}ですね。これから 昼休{ひるやす}みです。午後{ごご}の 授業{じゅぎょう}は 1時{いちじ}から 始{はじ}まります。1時{いちじ}までに この 教室{きょうしつ}へ 戻{もど}って ください。 …… 昼休{ひるやす}みは 何時{なんじ}までですか。",
+          "script": "先生：みなさん、もうすぐ 12時{じゅうにじ}ですね。これから 昼休{ひるやす}みです。午後{ごご}の 授業{じゅぎょう}は 1時{いちじ}から 始{はじ}まります。1時{いちじ}までに この 教室{きょうしつ}へ 戻{もど}って ください。",
+          "q": "昼休{ひるやす}みは 何時{なんじ}までですか。",
+          "opts": ["12時{じゅうにじ}まで", "12時{じゅうにじ}半{はん}まで", "1時{いちじ}まで", "2時{にじ}まで"],
+          "a": 2,
+          "exp": "Kelas siang dimulai jam 1 dan siswa diminta kembali sebelum jam 1, artinya istirahat makan siang berlangsung sampai **1時{いちじ}まで**."
+        },
+        {
+          "mondai": "Bagian 3 · Pemahaman Audio",
+          "inst": "Dengarkan audio percakapan lalu pilih jawaban yang tepat.",
+          "say": "家{いえ}で 夫{おっと}と 妻{つま}が 話{はな}して います。夫{おっと}は 何{なに}を 持{も}って 出{で}かけますか。 …… いってきます。 あ、ちょっと 待{ま}って。今日{きょう}は 午後{ごご}から 雨{あめ}が 降{ふ}るそうですよ。 えっ、本当{ほんとう}？ 今{いま}は いい 天気{てんき}なのに。 念{ねん}のため、小{ちい}さい 傘{かさ}を かばんに 入{い}れて ください。 ありがとう。そう するよ。 …… 夫{おっと}は 何{なに}を 持{も}って 出{で}かけますか。",
+          "script": "夫：いってきます。\n妻：あ、ちょっと 待{ま}って。今日{きょう}は 午後{ごご}から 雨{あめ}が 降{ふ}るそうですよ。\n夫：えっ、本当{ほんとう}？ 今{いま}は いい 天気{てんき}なのに。\n妻：念{ねん}のため、小{ちい}さい 傘{かさ}を かばんに 入{い}れて ください。\n夫：ありがとう。そう するよ。",
+          "q": "夫{おっと}は 何{なに}を 持{も}って 出{で}かけますか。",
+          "opts": ["小{ちい}さい 傘{かさ}", "厚{あつ}い コート", "帽子{ぼうし}", "水筒{すいとう}"],
+          "a": 0,
+          "exp": "Karena katanya sore akan turun hujan, sang istri menyarankan untuk memasukkan payung kecil (**小{ちい}さい 傘{かさ}**) ke dalam tas."
+        },
+        {
+          "mondai": "Bagian 3 · Pemahaman Audio",
+          "inst": "Dengarkan audio percakapan lalu pilih jawaban yang tepat.",
+          "say": "職場{しょくば}で 女{おんな}の人{ひと}と 部長{ぶちょう}が 話{はな}して います。女{おんな}の人{ひと}は どうして 早{はや}く 帰{かえ}りますか。 …… 部長{ぶちょう}、すみません。さっきから 頭{あたま}が 痛{いた}くて、少{すこ}し 熱{ねつ}も あるんです。 そうですか。それは いけませんね。今日{きょう}は もう 仕事{しごと}を 休{やす}んで、病院{びょういん}へ 行{い}って ください。 ありがとうございます。お先{さき}に 失礼{しつれい}します。 …… 女{おんな}の人{ひと}は どうして 早{はや}く 帰{かえ}りますか。",
+          "script": "女：部長{ぶちょう}、すみません。さっきから 頭{あたま}が 痛{いた}くて、少{すこ}し 熱{ねつ}も あるんです。\n部長：そうですか。それは いけませんね。今日{きょう}は もう 仕事{しごと}を 休{やす}んで、病院{びょういん}へ 行{い}って ください。\n女：ありがとうございます。お先{さき}に 失礼{しつれい}します。",
+          "q": "女{おんな}の人{ひと}は どうして 早{はや}く 帰{かえ}りますか。",
+          "opts": [
+            "病院{びょういん}で 働{はたら}くから",
+            "家族{かぞく}を 迎{むか}えに 行{い}くから",
+            "体{からだ}の 具合{ぐあい}が 悪{わる}いから",
+            "電車{でんしゃ}が 止{と}まるから"
+          ],
+          "a": 2,
+          "exp": "Ia sakit kepala dan sedikit demam, yaitu kondisi badannya kurang sehat (**体{からだ}の 具合{ぐあい}が 悪{わる}いから**)."
+        },
+        {
+          "mondai": "Bagian 3 · Pemahaman Audio",
+          "inst": "Dengarkan audio percakapan lalu pilih jawaban yang tepat.",
+          "say": "男{おとこ}の人{ひと}と 女{おんな}の人{ひと}が 話{はな}して います。二人{ふたり}は 日曜日{にちようび}に 何{なに}を しますか。 …… 今度{こんど}の 日曜日{にちようび}、ひまですか。 ええ、ひまですよ。 新{あたら}しい 映画{えいが}を 見{み}に 行{い}きませんか。 いいですね。でも、私{わたし}は その 映画{えいが}、昨日{きのう} 見{み}たんです。じゃあ、公園{こうえん}で 散歩{さんぽ}しませんか。 そうですね。そう しましょう。 …… 二人{ふたり}は 日曜日{にちようび}に 何{なに}を しますか。",
+          "script": "男：今度{こんど}の 日曜日{にちようび}、ひまですか。\n女：ええ、ひまですよ。\n男：新{あたら}しい 映画{えいが}を 見{み}に 行{い}きませんか。\n女：いいですね。でも、私{わたし}は その 映画{えいが}、昨日{きのう} 見{み}たんです。じゃあ、公園{こうえん}で 散歩{さんぽ}しませんか。\n男：そうですね。そう しましょう。",
+          "q": "二人{ふたり}は 日曜日{にちようび}に 何{なに}を しますか。",
+          "opts": [
+            "映画{えいが}を 見{み}ます",
+            "公園{こうえん}を 散歩{さんぽ}します",
+            "レストランで 食事{しょくじ}します",
+            "買{か}い物{もの}を します"
+          ],
+          "a": 1,
+          "exp": "Wanita tersebut sudah menonton filmnya kemarin, lalu mengusulkan jalan-jalan di taman (**公園{こうえん}を 散歩{さんぽ}します**), dan pria itu setuju."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": "読解 (Pemahaman Bacaan)",
+      "desc": "Menguji pemahaman informasi praktis dari papan pengumuman, pesan singkat, jadwal, dan brosur sehari-hari.",
+      "minutes": 15,
+      "scoreGroup": "read",
+      "questions": [
+        {
+          "mondai": "Bagian 4 · Papan Informasi",
+          "inst": "Bacalah papan informasi klinik berikut dan jawab pertanyaannya.",
+          "passage": "あおば クリニック\n\n月{げつ}・火{か}・木{もく}・金{きん}：9:00 ～ 12:30 / 15:00 ～ 18:00\n水曜日{すいようび}・土曜日{どようび}：9:00 ～ 12:30 のみ\n休{やす}み：日曜日{にちようび}・祝日{しゅくじつ}",
+          "q": "土曜日{どようび}の 午後{ごご} 4時{よじ}に この クリニックへ 行{い}く ことが できますか。",
+          "opts": [
+            "はい、6時{ろくじ}まで 開{あ}いて います。",
+            "いいえ、土曜日{どようび}は 午前{ごぜん}だけ 開{あ}いて います。",
+            "いいえ、土曜日{どようび}は 一日中{いちにちじゅう} 休{やす}みです。",
+            "はい、3時{さんじ}から 始{はじ}まります。"
+          ],
+          "a": 1,
+          "exp": "Di papan tertulis *土曜日{どようび}：9:00 ～ 12:30 のみ* (Sabtu hanya buka pagi 9.00–12.30), jadi sore jam 4 sudah tutup."
+        },
+        {
+          "mondai": "Bagian 4 · Pesan Singkat",
+          "inst": "Bacalah pesan berikut dan jawab pertanyaannya.",
+          "passage": "【メッセージ】田中{たなか}より\n\nお疲{つか}れさまです。\n明日{あした}の 朝{あさ}の ミーティングですが、9時{くじ}から 9時{くじ}30分{さんじゅっぷん}に 変{か}わりました。\n場所{ばしょ}は いつもの 2階{にかい}の 部屋{へや}です。よろしく お願{ねが}いします。",
+          "q": "明日{あした}の ミーティングは 何時{なんじ}からですか。",
+          "opts": [
+            "9時{くじ}から",
+            "9時{くじ}30分{さんじゅっぷん}から",
+            "2時{にじ}から",
+            "10時{じゅうじ}から"
+          ],
+          "a": 1,
+          "exp": "Pesan menyebut jam rapat berubah dari jam 9.00 menjadi **9時{くじ}30分{さんじゅっぷん}から** (pukul 09.30)."
+        },
+        {
+          "mondai": "Bagian 4 · Aturan Apartemen",
+          "inst": "Bacalah aturan membuang sampah berikut dan jawab pertanyaannya.",
+          "passage": "ごみ出{だ}しの ルール\n\n燃{も}える ごみ：火曜日{かようび}・金曜日{きんようび}\n燃{も}えない ごみ：水曜日{すいようび}\nペットボトル・びん・かん：土曜日{どようび}\n\n※ ごみは 朝{あさ} 8時{はちじ}までに 出{だ}して ください。",
+          "q": "ペットボトルを 捨{す}てたい とき、いつ 出{だ}しますか。",
+          "opts": [
+            "火曜日{かようび}の 朝{あさ} 8時{はちじ}まで",
+            "水曜日{すいようび}の 朝{あさ} 8時{はちじ}まで",
+            "金曜日{きんようび}の 夜{よる}",
+            "土曜日{どようび}の 朝{あさ} 8時{はちじ}まで"
+          ],
+          "a": 3,
+          "exp": "Botol plastik (ペットボトル) dibuang setiap **土曜日{どようび}** (Sabtu) sebelum pukul 8 pagi."
+        },
+        {
+          "mondai": "Bagian 4 · Poster Pengumuman",
+          "inst": "Bacalah poster berikut dan pilih pernyataan yang sesuai.",
+          "passage": "日本語{にほんご} クラスの お知{し}らせ\n\n毎週{まいしゅう} 日曜日{にちようび} 10:00 ～ 11:30\n場所{ばしょ}：市民{しみん}センター 3階{さんがい}\nお金{かね}：無料{むりょう}（0円{えん}）\n持{も}ち物{もの}：ノート、えんぴつ",
+          "q": "この 日本語{にほんご} クラスに ついて 正{ただ}しい ものは どれですか。",
+          "opts": [
+            "お金{かね}が かかります。",
+            "土曜日{どようび}に あります。",
+            "市民{しみん}センターの 3階{さんがい}で します。",
+            "テキストを 買{か}わなければ なりません。"
+          ],
+          "a": 2,
+          "exp": "Kelas diadakan setiap Minggu pagi di **市民{しみん}センター 3階{さんがい}** secara gratis (無料{むりょう})."
+        },
+        {
+          "mondai": "Bagian 4 · Selebaran Promo",
+          "inst": "Bacalah selebaran supermarket berikut dan jawab pertanyaannya.",
+          "passage": "フレッシュ・スーパー セール！\n\n今週{こんしゅう}の 土曜日{どようび}・日曜日{にちようび}だけ\n・くだもの・野菜{やさい}：20% 引{び}き\n・牛乳{ぎゅうにゅう} 1本{いっぽん}：150円{ひゃくごじゅうえん}（ひとり 2本{にほん}まで）",
+          "q": "日曜日{にちようび}に 牛乳{ぎゅうにゅう}を 5本{ごほん} 150円{ひゃくごじゅうえん}で 買{か}う ことが できますか。",
+          "opts": [
+            "はい、何本{なんぼん}でも 150円{ひゃくごじゅうえん}です。",
+            "いいえ、ひとり 2本{にほん}までです。",
+            "いいえ、牛乳{ぎゅうにゅう}は 日曜日{にちようび}に 売{う}って いません。",
+            "いいえ、セールは 月曜日{げつようび}だけです。"
+          ],
+          "a": 1,
+          "exp": "Promo susu seharga 150 yen dibatasi maksimal **2 botol per orang** (*ひとり 2本{にほん}まで*)."
+        },
+        {
+          "mondai": "Bagian 4 · Memo Kantor",
+          "inst": "Bacalah memo berikut dan jawab pertanyaannya.",
+          "passage": "山田{やまだ}さんへ\n\nさきほど ABC商事{しょうじ}の 木村{きむら}さんから 電話{でんわ}が ありました。\n「今日{きょう}の 午後{ごご} 4時{よじ}ごろ もう 一度{いちど} 電話{でんわ}します」と 言{い}って いました。\n\n佐藤{さとう}",
+          "q": "午後{ごご} 4時{よじ}ごろ だれが 電話{でんわ}を しますか。",
+          "opts": [
+            "山田{やまだ}さんが 木村{きむら}さんに かけます。",
+            "佐藤{さとう}さんが 木村{きむら}さんに かけます。",
+            "木村{きむら}さんが もう 一度{いちど} 電話{でんわ}します。",
+            "山田{やまだ}さんが 佐藤{さとう}さんに かけます。"
+          ],
+          "a": 2,
+          "exp": "Pesan yang disampaikan Sato adalah Kimura akan menelepon sekali lagi sekitar pukul 4 sore."
+        },
+        {
+          "mondai": "Bagian 4 · Jadwal Bus",
+          "inst": "Bacalah jadwal keberangkatan bus berikut dan jawab pertanyaannya.",
+          "passage": "中央{ちゅうおう}駅{えき} バス 案内{あんない}\n\n・空港{くうこう} ゆき：1番{いちばん} のりば（毎時{まいじ} 00分{ふん}、30分{さんじゅっぷん}）\n・病院{びょういん} ゆき：2番{にばん} のりば（毎時{まいじ} 15分{じゅうごふん}、45分{よんじゅうごふん}）",
+          "q": "10時{じゅうじ}10分{じゅっぷん}に 駅{えき}に 着{つ}きました。次{つぎ}の 空港{くうこう}ゆきの バスは 何時{なんじ}ですか。また どこで 乗{の}りますか。",
+          "opts": [
+            "10時{じゅうじ}15分{じゅうごふん}、2番{にばん} のりば",
+            "10時{じゅうじ}30分{さんじゅっぷん}、1番{いちばん} のりば",
+            "10時{じゅうじ}30分{さんじゅっぷん}、2番{にばん} のりば",
+            "11時{じゅういちじ}00分{ふん}、1番{いちばん} のりば"
+          ],
+          "a": 1,
+          "exp": "Bus ke bandara (空港{くうこう}ゆき) berangkat dari **1番{いちばん} のりば** setiap menit 00 dan 30. Karena tiba pukul 10.10, bus berikutnya adalah pukul **10時{じゅうじ}30分{さんじゅっぷん}**."
+        },
+        {
+          "mondai": "Bagian 4 · Email Pendek",
+          "inst": "Bacalah email berikut dan jawab pertanyaannya.",
+          "passage": "タイトル：来週{らいしゅう}の 食事会{しょくじかい}\n\nみなさんへ\n来週{らいしゅう}の 金曜日{きんようび} 19:00から、「さくら」という レストランで 食事会{しょくじかい}を します。\n参加{さんか}できる 人{ひと}は、水曜日{すいようび}までに 私{わたし}に メールを ください。\n\nマリア",
+          "q": "食事会{しょくじかい}に 行{い}きたい 人{ひと}は いつまでに メールを しますか。",
+          "opts": [
+            "水曜日{すいようび}まで",
+            "木曜日{もくようび}まで",
+            "金曜日{きんようび}まで",
+            "土曜日{どようび}まで"
+          ],
+          "a": 0,
+          "exp": "Di email tertulis *参加{さんか}できる 人{ひと}は、水曜日{すいようび}までに 私{わたし}に メールを ください* (batas konfirmasi hingga hari Rabu)."
+        }
+      ]
+    }
+  ]
+}

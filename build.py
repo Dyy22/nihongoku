@@ -42,6 +42,7 @@ def audio_id(text: str) -> str:
 
 PART_LABELS = [("kosa", "Kosa Kata"), ("tata", "Tata Bahasa"), ("cakap", "Percakapan")]
 CONTENT = ROOT / "content"
+EXAMS_DIR = ROOT / "exams"
 
 
 # ---------- markdown mini-renderer ----------
@@ -237,9 +238,32 @@ def reading(jp: str) -> str:
 def cinline(s: str) -> str:
     s = html.escape(s, quote=False)
     s = re.sub(r"\*\*(?=\S)(.+?)(?<=\S)\*\*", r"<strong>\1</strong>", s)
+    s = re.sub(r"__(?=\S)(.+?)(?<=\S)__", r"<u>\1</u>", s)
     s = re.sub(r"(?<![\w*])\*(?=[^\s*])(.+?)(?<=[^\s*])\*(?![\w*])", r"<em>\1</em>", s)
     s = re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
-    return ruby(s)
+    return ruby(s).replace("\n", "<br>")
+
+
+def load_exams():
+    exams = []
+    if not EXAMS_DIR.exists():
+        return exams
+    for f in sorted(EXAMS_DIR.glob("*.json")):
+        ex = json.loads(f.read_text(encoding="utf-8"))
+        for sec in ex.get("sections", []):
+            for q in sec.get("questions", []):
+                for k in ("q", "passage", "script", "exp"):
+                    if q.get(k):
+                        q[k] = cinline(q[k])
+                if "opts" in q:
+                    q["opts"] = [cinline(o) for o in q["opts"]]
+                if q.get("say"):
+                    t = reading(q["say"])
+                    q["say"] = t
+                    SAYS.add(t)
+        exams.append(ex)
+    exams.sort(key=lambda e: (e.get("order", 99), e.get("id", "")))
+    return exams
 
 
 SPEAK_BTN = ('<button class="say sm" type="button" data-say="{}" aria-label="Dengarkan">'
@@ -513,6 +537,7 @@ def build():
                      f'<article class="prose"><h1>{html.escape(o["title"])}</h1>{o["html"]}</article></section>')
 
     intro = next((o["i"] for o in others if o["slug"].endswith("kana")), 0)
+    exams = load_exams()
     # audio: daftar teks untuk gen_audio.py, peta teks -> id untuk file yang sudah ada
     kana = [x[0] for row in KANA_ROWS.split("|") for x in row.split(" ")]
     texts = sorted({v[6] for v in vocab if v[6]} | set(kana) | {to_kata(k) for k in kana} | SAYS)
@@ -521,11 +546,16 @@ def build():
     meta = json.dumps({"lessons": [[l["n"], l["title"]] for l in lessons], "intro": intro, "kana": KANA_ROWS,
                        "audio": audio}, ensure_ascii=False, separators=(",", ":"))
     data = json.dumps(vocab, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
-    page = TEMPLATE.read_text(encoding="utf-8").replace("{{PAGES}}", "\n".join(pages)).replace("{{VOCAB}}", data).replace("{{META}}", meta.replace("</", "<\\/"))
+    exams_json = json.dumps(exams, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    page = (TEMPLATE.read_text(encoding="utf-8")
+            .replace("{{PAGES}}", "\n".join(pages))
+            .replace("{{VOCAB}}", data)
+            .replace("{{EXAMS}}", exams_json)
+            .replace("{{META}}", meta.replace("</", "<\\/")))
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(page, encoding="utf-8")
     print(f"{OUT.relative_to(ROOT)}: {len(page)/1024:.0f} KB, {len(lessons)} pelajaran, {len(vocab)} kosa kata, "
-          f"{len(others)} bagian lain, audio {len(audio)}/{len(texts)}")
+          f"{len(others)} bagian lain, {len(exams)} ujian, audio {len(audio)}/{len(texts)}")
 
 
 if __name__ == "__main__":
