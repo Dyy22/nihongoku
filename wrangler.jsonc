@@ -1,0 +1,24 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nihongoku",
+  "main": "worker/index.js",
+  "compatibility_date": "2025-09-01",
+  "routes": [{ "pattern": "nihongoku.dylab.my.id", "custom_domain": true }],
+  "vars": {
+    "MAIL_FROM": "Nihongoku <noreply@mail.dylab.my.id>",
+    "APP_URL": "https://nihongoku.dylab.my.id"
+  },
+  "assets": {
+    "directory": "./site",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "nihongoku",
+      "database_id": "e0bea609-add1-4ffc-a555-98bb023db6b3",
+      "migrations_dir": "migrations"
+    }
+  ]
+}

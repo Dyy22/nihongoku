@@ -1,0 +1,13 @@
+{
+  "name": "nihongoku",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "python3 build.py",
+    "dev": "python3 build.py && wrangler d1 migrations apply nihongoku --local && wrangler dev --port 4173",
+    "deploy": "python3 build.py && wrangler d1 migrations apply nihongoku --remote && wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.163.0"
+  }
+}
