@@ -389,7 +389,29 @@ body.hide .v:not(.show) .ar{filter:blur(6px);user-select:none}
 .erev-exp{font-size:14px;line-height:1.7;color:var(--muted)}
 .erev-card details{margin-bottom:8px}
 
+/* quick drills & kanji */
+.qdrills{margin-top:16px}
+.qdrill-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.qdrill{display:flex;flex-direction:column;gap:2px;padding:12px 10px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.qdrill:active{background:var(--soft)}
+.qdrill-em{font-size:20px;line-height:1.2;font-family:var(--jp);font-weight:700;color:var(--accent)}
+.qdrill b{font-size:14px;line-height:1.25;margin-top:4px}
+.qdrill small{font-size:11.5px;line-height:1.3;color:var(--muted)}
+.drill-sub{margin:-10px 0 18px;padding:10px 14px;border-radius:12px;background:var(--soft);font-size:14.5px;color:var(--muted)}
+.drill-exp{margin-top:4px;font-size:13.5px;line-height:1.5;color:var(--ink)}
+.kgrid{display:grid;gap:10px;margin:12px 0 22px}
+.kcard{padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.kc-top{display:flex;align-items:center;gap:12px}
+.kc-k{flex:none;width:54px;height:54px;display:grid;place-items:center;border-radius:12px;background:var(--soft);font:700 32px/1 var(--jp);color:var(--accent)}
+.kc-top b{display:block;font-size:15.5px;line-height:1.3}
+.kc-rd{display:flex;flex-wrap:wrap;gap:2px 12px;margin-top:3px;font-size:12.5px;color:var(--muted);font-family:var(--jp)}
+.kc-exs{margin-top:10px;padding-top:8px;border-top:1px solid var(--line);display:grid;gap:6px}
+.kc-ex{display:flex;align-items:center;gap:8px;font-size:14px}
+.kc-ex span{font-size:16px;font-weight:600}
+.kc-ex small{flex:1;min-width:0;color:var(--muted)}
+
 @media (min-width:600px){
+  .kgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .v{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:20px;align-items:end}
   .tw{margin-inline:0;padding:0}
@@ -416,6 +438,7 @@ body.hide .v:not(.show) .ar{filter:blur(6px);user-select:none}
   <div class="goal"><div><span>Target harian</span><span id="goal-t">0 / 30 XP</span></div><div class="meter"><i id="goal-m"></i></div></div>
   <div class="welcome" id="welcome" hidden><b>Baru mulai? Santai saja.</b>Mulai dari Hiragana, lalu Katakana, baru masuk Pelajaran 1. Tiap sesi cuma beberapa menit: kenalan dengan kata baru, lalu langsung latihan.</div>
   <a class="review" id="review" href="#/q/review/0" hidden></a>
+  <div class="qdrills" id="qdrills"></div>
   <div id="path"></div>
 </section>
 <section class="page" id="pg-cari" data-title="Cari" hidden>
@@ -447,6 +470,7 @@ body.hide .v:not(.show) .ar{filter:blur(6px);user-select:none}
 </div>
 <script id="vocab" type="application/json">{{VOCAB}}</script>
 <script id="exams" type="application/json">{{EXAMS}}</script>
+<script id="drills" type="application/json">{{DRILLS}}</script>
 <script id="meta" type="application/json">{{META}}</script>
 <script>
 (function(){
@@ -456,16 +480,17 @@ const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},se
 const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const toKata=s=>s.replace(/[ぁ-ゖ]/g,c=>String.fromCharCode(c.charCodeAt(0)+96));
-const V=JSON.parse($('#vocab').textContent), EXAMS=JSON.parse($('#exams').textContent), META=JSON.parse($('#meta').textContent);
+const V=JSON.parse($('#vocab').textContent), EXAMS=JSON.parse($('#exams').textContent), DRILLS=JSON.parse($('#drills').textContent), META=JSON.parse($('#meta').textContent);
 const EXAM_MAP={}; EXAMS.forEach(e=>EXAM_MAP[e.id]=e);
 const SPK='<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>';
 const GOAL=30, PASS=70, EXAMQ=20; // ujian bab: lulus >= 70% menyelesaikan semua sesi bab
 
 /* ---------- state ---------- */
-const blank=()=>({xp:0,streak:0,last:'',day:'',dayXp:0,done:{},miss:{},exams:{},t:0});
+const blank=()=>({xp:0,streak:0,last:'',day:'',dayXp:0,done:{},miss:{},exams:{},drills:{},t:0});
 let S=blank();
 try{Object.assign(S,JSON.parse(store.get('progress')||'{}'))}catch(e){}
 if(!S.exams||typeof S.exams!=='object')S.exams={};
+if(!S.drills||typeof S.drills!=='object')S.drills={};
 const persist=()=>store.set('progress',JSON.stringify(S));
 const save=()=>{S.t=Date.now();persist();queuePush()};
 const dayStr=d=>d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
@@ -527,6 +552,11 @@ function renderHome(){
   $('#welcome').hidden=doneN>0;
   const missN=Object.keys(S.miss).length, rv=$('#review');
   rv.hidden=!missN; rv.innerHTML='<span>🎯 Latih '+missN+' kata yang masih sulit</span><span>›</span>';
+  const drDone=S.drills||{};
+  $('#qdrills').innerHTML='<h2 class="sec" style="margin:18px 0 8px">Latihan Cepat N5</h2><div class="qdrill-row">'+
+    [['konjugasi','🔄','Konjugasi','ます → て/ない/た'],['partikel','🧩','Partikel','は・が・を・に・で'],['kanji','漢','Kanji N5','100 kanji inti']]
+      .map(([id,em,tit,sub])=>'<a class="qdrill" href="#/q/drill/'+id+'"><span class="qdrill-em">'+em+'</span><b>'+tit+'</b><small>'+sub+(drDone[id]?' · '+drDone[id]+'×':'')+'</small></a>').join('')+
+    '</div>';
   let next=null, k=0, h='';
   UNITS.forEach((u,ui)=>{
     const ids=sessIds(u), d=ids.filter(id=>id in S.done).length;
@@ -568,20 +598,67 @@ function buildTest(items,n){
   if(pick.length>=4)steps.splice(steps.length>>1,0,{t:'match',its:pick.slice(0,4)});
   return steps;
 }
+function buildVerbDrill(){
+  const forms=[['Kamus',1,'Bentuk kamus (dasar)'],['て',2,'Bentuk て'],['ない',3,'Bentuk ない'],['た',4,'Bentuk た (lampau)']];
+  const rules={'Ⅰ':'Kel. Ⅰ: ubah bunyi -i sebelum ます sesuai pola (い/ち/り→って, み/び/に→んで, き→いて, ぎ→いで, し→して).','Ⅱ':'Kel. Ⅱ: buang ます lalu langsung tambah る / て / ない / た.','Ⅲ':'Kel. Ⅲ: kata kerja tidak beraturan (します→する/して/しない/した, きます→くる/きて/こない/きた).'};
+  return shuffle(DRILLS.verbs).slice(0,10).map((v,i)=>{
+    const [fName,fIdx,fTitle]=forms[i%forms.length], ans=v[fIdx], stem=v[0].slice(0,-2), base=stem.slice(0,-1), g=v[6];
+    const cands=[stem+'る',stem+'て',stem+'ない',stem+'た',base+'って',base+'んで',base+'いて',base+'して',base+'った',base+'んだ',base+'いた',base+'した',base+'う',base+'く',base+'す',base+'つ',base+'む',base+'る',base+'らない',base+'わない',base+'かない',base+'さない',stem+'する',stem+'くる',v[1],v[2],v[3],v[4]];
+    const pool=new Set([ans]), dist=[];
+    for(const c of shuffle(cands)){ if(c&&!pool.has(c)){pool.add(c);dist.push(c);if(dist.length===3)break} }
+    while(dist.length<3){const r=DRILLS.verbs[Math.random()*DRILLS.verbs.length|0][fIdx];if(!pool.has(r)){pool.add(r);dist.push(r)}}
+    const opts=shuffle([ans,...dist]);
+    return {t:'drill',tag:'Konjugasi · Kel. '+g,qlab:'Ubah ke '+fTitle,jp:v[0],sub:v[5],say:v[0],opts,a:opts.indexOf(ans),
+      ansHtml:'<span lang="ja">'+esc(ans)+'</span> ('+esc(fName)+')',exp:rules[g],jaOpts:true,two:true};
+  });
+}
+function buildParticleDrill(){
+  return shuffle(DRILLS.particles).slice(0,10).map(p=>{
+    const ord=shuffle([0,1,2,3]), opts=ord.map(k=>p.opts[k]), a=ord.indexOf(p.a);
+    return {t:'drill',tag:'Partikel N5',qlab:'Pilih partikel yang tepat',jpHtml:p.q,sub:p.id,opts,a,
+      ansHtml:'<span lang="ja">'+esc(opts[a])+'</span>',expHtml:p.exp,jaOpts:true,two:true};
+  });
+}
+function buildKanjiDrill(){
+  const pool=DRILLS.kanji, allEx=pool.flatMap(k=>k.ex||[]);
+  return shuffle(pool).slice(0,10).map((k,i)=>{
+    const info='On: '+k.on+' · Kun: '+k.kun+(k.ex&&k.ex[0]?' · Contoh: '+k.ex[0][0]+' ('+k.ex[0][1]+') = '+k.ex[0][2]:'');
+    if(i%2===0){
+      const dist=[]; const seen=new Set([k.arti]);
+      for(const o of shuffle(pool)){if(!seen.has(o.arti)){seen.add(o.arti);dist.push(o.arti);if(dist.length===3)break}}
+      const opts=shuffle([k.arti,...dist]);
+      return {t:'drill',tag:'Kanji N5 · Arti',qlab:'Apa arti kanji ini?',jp:k.k,kana:true,opts,a:opts.indexOf(k.arti),
+        ansHtml:'<span lang="ja">'+esc(k.k)+'</span> = '+esc(k.arti),exp:info,jaOpts:false,two:false};
+    }
+    const ex=k.ex[0], dist=[]; const seen=new Set([ex[1]]);
+    for(const o of shuffle(allEx)){if(!seen.has(o[1])&&Math.abs(o[1].length-ex[1].length)<=2){seen.add(o[1]);dist.push(o[1]);if(dist.length===3)break}}
+    for(const o of shuffle(allEx)){if(dist.length>=3)break;if(!seen.has(o[1])){seen.add(o[1]);dist.push(o[1])}}
+    const opts=shuffle([ex[1],...dist]);
+    return {t:'drill',tag:'Kanji N5 · Bacaan',qlab:'Bagaimana cara membaca kata ini?',jp:ex[0],sub:'Arti: '+ex[2],say:ex[1],noPromptSay:true,opts,a:opts.indexOf(ex[1]),
+      ansHtml:'<span lang="ja">'+esc(ex[0])+'</span> ('+esc(ex[1])+') = '+esc(ex[2]),exp:'Kanji '+k.k+' ('+k.arti+') · On: '+k.on+' · Kun: '+k.kun,jaOpts:true,two:true};
+  });
+}
 function startQuiz(uid,sid){
-  let steps,id,title;
+  let steps,id,drill=null;
   if(uid==='review'){
     const its=Object.keys(S.miss).sort((a,b)=>S.miss[b]-S.miss[a]).map(k=>ITEM[k]||UNITS.slice(0,2).flatMap(u=>u.sessions.flat()).find(i=>i.key===k)).filter(Boolean).slice(0,10);
     if(!its.length)return false;
     steps=buildTest(its,10);id='review';
+  }else if(uid==='drill'){
+    if(sid==='konjugasi')steps=buildVerbDrill();
+    else if(sid==='partikel')steps=buildParticleDrill();
+    else if(sid==='kanji')steps=buildKanjiDrill();
+    else return false;
+    if(!steps.length)return false;
+    id='drill-'+sid; drill=sid;
   }else{
     const u=UNIT[uid]; if(!u)return false;
     if(sid==='x'){ if(!u.exam)return false; steps=buildTest(u.all,EXAMQ) }
     else{ const s=u.sessions[+sid]; if(!s)return false; steps=buildLearn(s) }
     id=uid+'-'+sid;
   }
-  Q={id,steps,i:0,total:0,right:0,review:uid==='review',exam:uid!=='review'&&sid==='x',uid,hash:location.hash};
-  preload(steps.flatMap(st=>st.its?st.its.map(i=>i.say):[st.it.say]));
+  Q={id,steps,i:0,total:0,right:0,review:uid==='review',exam:uid!=='review'&&uid!=='drill'&&sid==='x',drill,uid,hash:location.hash};
+  preload(steps.flatMap(st=>st.its?st.its.map(i=>i.say):[(st.it&&st.it.say)||st.say]).filter(Boolean));
   Object.keys(SFXF).forEach(sfxEl);
   $('#quiz').hidden=false; document.body.style.overflow='hidden';
   showStep(); return true;
@@ -646,6 +723,21 @@ function showStep(){
       if(t.dataset.p!=null)picked.splice(+t.dataset.p,1); else picked.push(+t.dataset.i); draw()};
     foot('','','Periksa',false);
     Q.onBtn=()=>{locked=true; qbody.onclick=null; setTimeout(()=>speak(it.say),300); grade(picked.map(i=>bank[i]).join('')===it.tiles,st,'<span lang="ja">'+it.jp+'</span>')};
+  }else if(st.t==='drill'){
+    const jpBody=st.jpHtml?st.jpHtml:esc(st.jp);
+    qbody.innerHTML='<p class="qlab"><small>'+esc(st.tag)+'</small>'+esc(st.qlab)+'</p>'+
+      '<div class="prompt"><div class="big'+(st.kana?' kana':'')+'" lang="ja">'+jpBody+'</div>'+(st.say&&!st.noPromptSay?'<button class="say" data-say="'+esc(st.say)+'" aria-label="Dengarkan">'+SPK+'</button>':'')+'</div>'+
+      (st.sub?'<div class="drill-sub">'+esc(st.sub)+'</div>':'')+
+      '<div class="opts'+(st.two?' two':'')+'">'+st.opts.map((o,i)=>'<button class="opt" data-i="'+i+'"'+(st.jaOpts?' lang="ja"':'')+'>'+esc(o)+'</button>').join('')+'</div>';
+    if(st.say&&!st.noPromptSay)speak(st.say);
+    $$('.opt',qbody).forEach(b=>b.onclick=()=>{
+      const ok=+b.dataset.i===st.a;
+      $$('.opt',qbody).forEach(x=>{x.disabled=true; if(+x.dataset.i===st.a)x.classList.add('ok')});
+      if(!ok)b.classList.add('bad');
+      if(st.say)setTimeout(()=>speak(st.say),250);
+      const fbExtra=st.expHtml?'<div class="drill-exp">'+st.expHtml+'</div>':(st.exp?'<div class="drill-exp">'+esc(st.exp)+'</div>':'');
+      grade(ok,st,st.ansHtml+fbExtra);
+    });
   }
 }
 function finish(){
@@ -653,13 +745,18 @@ function finish(){
   if(S.day!==today()){S.day=today();S.dayXp=0}
   const y=new Date();y.setDate(y.getDate()-1);
   if(S.last!==today()){S.streak=S.last===dayStr(y)?S.streak+1:1;S.last=today()}
-  S.xp+=xp; S.dayXp+=xp; if(!Q.review&&pass){
+  S.xp+=xp; S.dayXp+=xp;
+  if(Q.drill){
+    if(!S.drills||typeof S.drills!=='object')S.drills={};
+    S.drills[Q.drill]=(S.drills[Q.drill]||0)+1;
+  }else if(!Q.review&&pass){
     S.done[Q.id]=Math.max(S.done[Q.id]||0,acc);
     if(Q.exam)sessIds(UNIT[Q.uid]).forEach(id=>{if(!(id in S.done))S.done[id]=acc});
   }
   save();
   $('#qm').style.width='100%';
-  qbody.innerHTML='<div class="done-scr"><div class="em">'+(!pass?'💪':perfect?'🏆':'🎉')+'</div><h3>'+(Q.exam?(pass?'Lulus ujian!':'Belum lulus'):perfect?'Sempurna!':'Sesi selesai!')+'</h3><p>'+(Q.exam?(pass?'Semua sesi di bab ini ditandai selesai.':'Nilai minimal '+PASS+'%. Pelajari lagi atau coba ujian sekali lagi.'):perfect?'Tanpa salah sama sekali.':'Kata yang salah masuk ke daftar latihan ulang.')+'</p>'+
+  const desc=Q.exam?(pass?'Semua sesi di bab ini ditandai selesai.':'Nilai minimal '+PASS+'%. Pelajari lagi atau coba ujian sekali lagi.'):Q.drill?(perfect?'Tanpa salah sama sekali!':'Terus ulangi supaya makin lancar.'):perfect?'Tanpa salah sama sekali.':'Kata yang salah masuk ke daftar latihan ulang.';
+  qbody.innerHTML='<div class="done-scr"><div class="em">'+(!pass?'💪':perfect?'🏆':'🎉')+'</div><h3>'+(Q.exam?(pass?'Lulus ujian!':'Belum lulus'):perfect?'Sempurna!':'Sesi selesai!')+'</h3><p>'+desc+'</p>'+
     '<div class="stats"><div class="chip"><b>+'+xp+'</b><small>XP</small></div><div class="chip"><b>'+acc+'%</b><small>tepat</small></div><div class="chip"><b>🔥 '+S.streak+'</b><small>hari beruntun</small></div></div></div>';
   foot('','','Selesai',true); Q.onBtn=()=>{location.hash='#/'};
 }
@@ -732,7 +829,10 @@ function startExam(examId,mode,secId){
     const s=ex.sections.find(x=>x.id===secId); if(!s)return false; secs=[s];
   }else if(mode!=='full')return false;
   const items=[];
-  secs.forEach(s=>s.questions.forEach((q,qi)=>items.push({sec:s,qi,q})));
+  secs.forEach(s=>s.questions.forEach((q,qi)=>{
+    const ord=shuffle([0,1,2,3]), sq=Object.assign({},q,{opts:ord.map(k=>q.opts[k]),a:ord.indexOf(q.a)});
+    items.push({sec:s,qi,q:sq});
+  }));
   if(!items.length)return false;
   const totalSec=mode==='practice'?0:secs.reduce((n,s)=>n+s.minutes,0)*60;
   E={ex,mode,secs,items,i:0,ans:Array(items.length).fill(null),flags:{},checked:{},
@@ -1050,6 +1150,8 @@ function mergeP(a,b){
     });
     o.exams[k]={best:Math.max(x.best||0,y.best||0),last:latest.last??null,passed:!!(x.passed||y.passed),lastPassed:!!latest.lastPassed,tries:(x.tries||0)+(y.tries||0),at:Math.max(x.at||0,y.at||0),groups:latest.groups||null,secs};
   });
+  const drA=a.drills||{}, drB=b.drills||{};
+  new Set([...Object.keys(drA),...Object.keys(drB)]).forEach(k=>o.drills[k]=(drA[k]||0)+(drB[k]||0));
   const late=(a.last||'')>=(b.last||'')?a:b; o.last=late.last||''; o.streak=late.streak||0;
   if(a.day&&a.day===b.day){o.day=a.day;o.dayXp=(a.dayXp||0)+(b.dayXp||0)}else{const d=(a.day||'')>=(b.day||'')?a:b;o.day=d.day||'';o.dayXp=d.dayXp||0}
   return o;
@@ -1059,6 +1161,7 @@ function adopt(d,fromForm){
   if(fromForm&&!S.owner&&srv)S=mergeP(S,srv);                       // progres tamu digabung ke akun
   else if(srv&&(S.owner!==d.username||(srv.t||0)>=(S.t||0)))S=Object.assign(blank(),srv);
   if(!S.exams||typeof S.exams!=='object')S.exams={};
+  if(!S.drills||typeof S.drills!=='object')S.drills={};
   const needPush=!srv||fromForm||(S.t||0)>(srv.t||0);
   USER=d.username; ACC={email:d.email,verified:d.emailVerified}; S.owner=USER; if(needPush)S.t=Date.now(); persist();
   if(needPush)queuePush(0);
@@ -1153,7 +1256,7 @@ function renderAkun(){
     (reg?'<label>Ulangi password<input name="password2" type="password" autocomplete="new-password" required></label>':'')+
     '<p class="err" role="alert" hidden></p><button class="btn" type="submit">'+(reg?'Buat akun':'Masuk')+'</button></form>'+
     (reg?'<p class="note">Username 3–20 karakter: huruf kecil, angka, atau garis bawah. Kami kirim link konfirmasi ke emailmu.</p>':'<button class="link" type="button" id="forgot" style="margin-top:12px">Lupa password?</button>')+
-    (Object.keys(S.done).length||Object.keys(S.exams||{}).length?'<p class="note">Progres yang sudah kamu kerjakan di perangkat ini akan digabung ke akun.</p>':'');
+    (Object.keys(S.done).length||Object.keys(S.exams||{}).length||Object.keys(S.drills||{}).length?'<p class="note">Progres yang sudah kamu kerjakan di perangkat ini akan digabung ke akun.</p>':'');
   $$('.seg button',box).forEach(b=>b.onclick=()=>{mode=b.dataset.m;renderAkun();$('input',box).focus()});
   if($('#forgot'))$('#forgot').onclick=()=>{mode='lupa';renderAkun();$('input',box).focus()};
   bindForm($('#af'),f=>{
@@ -1166,7 +1269,7 @@ function renderAkun(){
       return null;
     },
     f=>{const u=f.username.value.trim().toLowerCase(), pw=f.password.value;
-      return api(reg?'register':'login',reg?{username:u,email:f.email.value.trim(),password:pw,progress:(Object.keys(S.done).length||Object.keys(S.exams||{}).length)?S:null}:{username:u,password:pw})},
+      return api(reg?'register':'login',reg?{username:u,email:f.email.value.trim(),password:pw,progress:(Object.keys(S.done).length||Object.keys(S.exams||{}).length||Object.keys(S.drills||{}).length)?S:null}:{username:u,password:pw})},
     r=>{if(reg){S.owner=r.d.username;flash={ok:true,text:'Akun dibuat! Cek email '+r.d.email+' untuk konfirmasi.'}}  // progres tamu sudah dikirim saat daftar
       adopt(r.d,!reg); renderAkun()});
 }

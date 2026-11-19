@@ -17,6 +17,7 @@ TEMPLATE = ROOT / "template.html"
 PART_KEYS = {"I": "kosa", "II": "terj", "III": "ref", "IV": "tata"}
 AUDIO_DIR = ROOT / "site" / "audio"
 AUDIO_LIST = ROOT / "audio_texts.json"
+DIALOG_LIST = ROOT / "audio_dialogs.json"
 
 # baris kana untuk unit Dasar (hiragana; katakana diturunkan di klien)
 KANA_ROWS = ("あa いi うu えe おo|かka きki くku けke こko|さsa しshi すsu せse そso|たta ちchi つtsu てte とto|"
@@ -43,6 +44,8 @@ def audio_id(text: str) -> str:
 PART_LABELS = [("kosa", "Kosa Kata"), ("tata", "Tata Bahasa"), ("cakap", "Percakapan")]
 CONTENT = ROOT / "content"
 EXAMS_DIR = ROOT / "exams"
+DRILLS_DIR = ROOT / "drills"
+DIALOGS = {}
 
 
 # ---------- markdown mini-renderer ----------
@@ -245,6 +248,7 @@ def cinline(s: str) -> str:
 
 
 def load_exams():
+    DIALOGS.clear()
     exams = []
     if not EXAMS_DIR.exists():
         return exams
@@ -257,7 +261,14 @@ def load_exams():
                         q[k] = cinline(q[k])
                 if "opts" in q:
                     q["opts"] = [cinline(o) for o in q["opts"]]
-                if q.get("say"):
+                if q.get("turns"):
+                    turns_kana = [[spk, reading(txt)] for spk, txt in q["turns"]]
+                    say = " ".join(txt for _, txt in turns_kana)
+                    did = audio_id("v2:" + json.dumps(turns_kana, ensure_ascii=False))
+                    DIALOGS[say] = (did, turns_kana)
+                    q["say"] = say
+                    del q["turns"]
+                elif q.get("say"):
                     t = reading(q["say"])
                     q["say"] = t
                     SAYS.add(t)
@@ -391,8 +402,8 @@ GROUP_FIX = {
 }
 
 
-def conj_table(vocab) -> str:
-    rows, seen = {"Ⅰ": [], "Ⅱ": [], "Ⅲ": []}, set()
+def conj_data(vocab):
+    rows, seen = [], set()
     for v in vocab:
         k = v[0].replace("*", "").strip()
         m = re.match(r"^(.*ます)\s*([ⅠⅡⅢ])", k)
@@ -409,13 +420,62 @@ def conj_table(vocab) -> str:
         if not f:
             continue
         seen.add(masu)
-        rows[g].append((masu, *f, v[2], v[3]))
-    out = []
+        rows.append((masu, *f, v[2], g, v[3]))
+    return rows
+
+
+def conj_table(vocab) -> str:
+    by_g = {"Ⅰ": [], "Ⅱ": [], "Ⅲ": []}
+    for r in conj_data(vocab):
+        by_g[r[6]].append(r)
+    out = ['<p><a class="practice" href="#/q/drill/konjugasi"><span>Latihan Konjugasi</span><span>›</span></a></p>']
     for g, name in (("Ⅰ", "Kelompok I"), ("Ⅱ", "Kelompok II"), ("Ⅲ", "Kelompok III")):
-        out.append(f"<h2>{name} <small class=\"muted\">({len(rows[g])} kata)</small></h2>")
+        out.append(f"<h2>{name} <small class=\"muted\">({len(by_g[g])} kata)</small></h2>")
         out.append('<div class="tw"><table><thead><tr><th>ます</th><th>Kamus</th><th>て</th><th>ない</th><th>た</th><th>Arti</th><th>Pel.</th></tr></thead><tbody>' +
                    "".join("<tr>" + "".join(f'<td lang="ja">{html.escape(c)}</td>' for c in r[:5]) +
-                           f"<td>{html.escape(r[5])}</td><td>{r[6]}</td></tr>" for r in rows[g]) + "</tbody></table></div>")
+                           f"<td>{html.escape(r[5])}</td><td>{r[7]}</td></tr>" for r in by_g[g]) + "</tbody></table></div>")
+    return "\n".join(out)
+
+
+def load_drills(vocab):
+    verbs = [[r[0], r[1], r[2], r[3], r[4], r[5], r[6]] for r in conj_data(vocab)]
+    p_path = DRILLS_DIR / "partikel-n5.json"
+    particles = json.loads(p_path.read_text(encoding="utf-8")) if p_path.exists() else []
+    for p in particles:
+        p["q"] = cinline(p["q"])
+        p["exp"] = cinline(p["exp"])
+    k_path = DRILLS_DIR / "kanji-n5.json"
+    kanji = json.loads(k_path.read_text(encoding="utf-8")) if k_path.exists() else []
+    return {"verbs": verbs, "particles": particles, "kanji": kanji}
+
+
+def kanji_page(kanji_list) -> str:
+    out = ['<p><a class="practice" href="#/q/drill/kanji"><span>Latihan Kanji N5</span><span>›</span></a></p>']
+    cats = []
+    by_cat = {}
+    for item in kanji_list:
+        cat = item.get("cat", "Lainnya")
+        if cat not in by_cat:
+            cats.append(cat)
+            by_cat[cat] = []
+        by_cat[cat].append(item)
+    for cat in cats:
+        items = by_cat[cat]
+        out.append(f'<h2>{html.escape(cat)} <small class="muted">({len(items)} kanji)</small></h2>')
+        out.append('<div class="kgrid">')
+        for item in items:
+            exs = "".join(
+                f'<div class="kc-ex"><span lang="ja"><ruby>{html.escape(w)}<rt>{html.escape(rd)}</rt></ruby></span>'
+                f'<small>{html.escape(mn)}</small>{SPEAK_BTN.format(html.escape(rd))}</div>'
+                for w, rd, mn in item.get("ex", [])
+            )
+            out.append(
+                f'<div class="kcard"><div class="kc-top"><span class="kc-k" lang="ja">{html.escape(item["k"])}</span>'
+                f'<div><b>{html.escape(item["arti"])}</b>'
+                f'<div class="kc-rd"><span>On: {html.escape(item["on"])}</span><span>Kun: {html.escape(item["kun"])}</span></div>'
+                f'</div></div><div class="kc-exs">{exs}</div></div>'
+            )
+        out.append('</div>')
     return "\n".join(out)
 
 
@@ -513,12 +573,15 @@ def build():
                                    "cakap": render_content(cakap) if cakap else PLACEHOLDER}))
 
     # halaman tambahan: content/hal-*.md (urut berdasarkan nama berkas)
+    drills = load_drills(vocab)
     others = []
     for f in sorted(CONTENT.glob("hal-*.md")):
         meta, secs = read_content(f)
         body = "\n".join(render_content(v) for v in secs.values())
         if meta.get("sisip") == "konjugasi":
             body += conj_table(vocab)
+        elif meta.get("sisip") == "kanji":
+            body += kanji_page(drills["kanji"])
         others.append(dict(i=len(others), slug=f.stem[4:], title=meta.get("judul", f.stem), grup=meta.get("grup", "pengantar"),
                            html=body))
 
@@ -572,21 +635,28 @@ def build():
     kana = [x[0] for row in KANA_ROWS.split("|") for x in row.split(" ")]
     texts = sorted({v[6] for v in vocab if v[6]} | set(kana) | {to_kata(k) for k in kana} | SAYS)
     AUDIO_LIST.write_text(json.dumps(texts, ensure_ascii=False, indent=0), encoding="utf-8")
+    dialogs_out = sorted({did: turns for did, turns in DIALOGS.values()}.items())
+    DIALOG_LIST.write_text(json.dumps([{"id": did, "turns": turns} for did, turns in dialogs_out], ensure_ascii=False, indent=2), encoding="utf-8")
     audio = {t: audio_id(t) for t in texts if (AUDIO_DIR / f"{audio_id(t)}.mp3").exists()}
+    for t, (did, _) in DIALOGS.items():
+        if (AUDIO_DIR / f"{did}.mp3").exists():
+            audio[t] = did
     meta = json.dumps({"lessons": [[l["n"], l["title"]] for l in lessons], "intro": intro, "kana": KANA_ROWS,
                        "audio": audio}, ensure_ascii=False, separators=(",", ":"))
     data = json.dumps(vocab, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     exams_json = json.dumps(exams, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    drills_json = json.dumps(drills, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     page = (TEMPLATE.read_text(encoding="utf-8")
             .replace("{{PAGES}}", "\n".join(pages))
             .replace("{{VOCAB}}", data)
             .replace("{{EXAMS}}", exams_json)
+            .replace("{{DRILLS}}", drills_json)
             .replace("{{META}}", meta.replace("</", "<\\/")))
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(page, encoding="utf-8")
     write_pwa(page)
     print(f"{OUT.relative_to(ROOT)}: {len(page)/1024:.0f} KB, {len(lessons)} pelajaran, {len(vocab)} kosa kata, "
-          f"{len(others)} bagian lain, {len(exams)} ujian, audio {len(audio)}/{len(texts)}")
+          f"{len(others)} bagian lain, {len(exams)} ujian, audio {len(audio)}/{len(texts) + len(dialogs_out)}")
 
 
 if __name__ == "__main__":

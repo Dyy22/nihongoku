@@ -1,0 +1,282 @@
+[
+  {
+    "q": "私{わたし} ( 　 ) 学生{がくせい}です。",
+    "id": "Saya adalah mahasiswa.",
+    "opts": ["は", "が", "を", "に"],
+    "a": 0,
+    "exp": "Partikel **は** (dibaca *wa*) menandai topik kalimat."
+  },
+  {
+    "q": "私{わたし}は 学生{がくせい}です。兄{あに} ( 　 ) 学生{がくせい}です。",
+    "id": "Saya mahasiswa. Kakak laki-laki juga mahasiswa.",
+    "opts": ["も", "は", "を", "に"],
+    "a": 0,
+    "exp": "Partikel **も** berarti \"juga\", menggantikan は saat keterangannya sama."
+  },
+  {
+    "q": "私{わたし} ( 　 ) かばんは 黒{くろ}いです。",
+    "id": "Tas milik saya berwarna hitam.",
+    "opts": ["の", "は", "を", "に"],
+    "a": 0,
+    "exp": "Partikel **の** menghubungkan dua kata benda untuk menyatakan kepemilikan (\"tas milik saya\")."
+  },
+  {
+    "q": "毎朝{まいあさ} コーヒー ( 　 ) 飲{の}みます。",
+    "id": "Setiap pagi minum kopi.",
+    "opts": ["を", "が", "に", "で"],
+    "a": 0,
+    "exp": "Partikel **を** menandai objek langsung dari kata kerja transitif seperti 飲{の}みます."
+  },
+  {
+    "q": "きのう スーパー ( 　 ) りんごを 買{か}いました。",
+    "id": "Kemarin membeli apel di supermarket.",
+    "opts": ["で", "に", "へ", "を"],
+    "a": 0,
+    "exp": "Partikel **で** menandai tempat berlangsungnya suatu kegiatan (membeli di supermarket)."
+  },
+  {
+    "q": "あした 図書館{としょかん} ( 　 ) 行{い}きます。",
+    "id": "Besok pergi ke perpustakaan.",
+    "opts": ["へ", "で", "を", "が"],
+    "a": 0,
+    "exp": "Partikel **へ** (dibaca *e*) menandai arah tujuan untuk kata kerja gerak seperti 行{い}きます."
+  },
+  {
+    "q": "毎朝{まいあさ} 6時{ろくじ} ( 　 ) 起{お}きます。",
+    "id": "Setiap pagi bangun pada jam 6.",
+    "opts": ["に", "で", "を", "へ"],
+    "a": 0,
+    "exp": "Partikel **に** menandai titik waktu yang memakai angka (jam, tanggal, hari)."
+  },
+  {
+    "q": "バス ( 　 ) 会社{かいしゃ}へ 行{い}きます。",
+    "id": "Pergi ke kantor naik bus.",
+    "opts": ["で", "に", "を", "へ"],
+    "a": 0,
+    "exp": "Partikel **で** menandai alat transportasi atau sarana."
+  },
+  {
+    "q": "はし ( 　 ) ごはんを 食{た}べます。",
+    "id": "Makan nasi memakai sumpit.",
+    "opts": ["で", "に", "を", "と"],
+    "a": 0,
+    "exp": "Partikel **で** juga digunakan untuk menandai alat yang dipakai melakukan tindakan."
+  },
+  {
+    "q": "友達{ともだち} ( 　 ) 映画{えいが}を 見{み}ました。",
+    "id": "Menonton film bersama teman.",
+    "opts": ["と", "で", "に", "を"],
+    "a": 0,
+    "exp": "Partikel **と** setelah orang berarti \"bersama\" orang tersebut."
+  },
+  {
+    "q": "友達{ともだち} ( 　 ) 花{はな}を あげました。",
+    "id": "Memberi bunga kepada teman.",
+    "opts": ["に", "で", "を", "へ"],
+    "a": 0,
+    "exp": "Penerima dari kata kerja memberi (あげます) ditandai partikel **に**."
+  },
+  {
+    "q": "父{ちち} ( 　 ) 時計{とけい}を もらいました。",
+    "id": "Menerima jam dari ayah.",
+    "opts": ["から", "へ", "を", "で"],
+    "a": 0,
+    "exp": "Pemberi saat kita menerima sesuatu (もらいます) ditandai **から** (atau に)."
+  },
+  {
+    "q": "家{いえ} ( 　 ) 駅{えき}まで 歩{ある}いて 10分{じゅっぷん}です。",
+    "id": "Dari rumah sampai stasiun jalan kaki 10 menit.",
+    "opts": ["から", "まで", "に", "で"],
+    "a": 0,
+    "exp": "Titik awal tempat atau waktu ditandai dengan **から** (dari)."
+  },
+  {
+    "q": "銀行{ぎんこう}は 9時{くじ}から 3時{さんじ} ( 　 ) です。",
+    "id": "Bank buka dari jam 9 sampai jam 3.",
+    "opts": ["まで", "から", "に", "へ"],
+    "a": 0,
+    "exp": "Batas akhir waktu atau tempat ditandai dengan **まで** (sampai)."
+  },
+  {
+    "q": "机{つくえ}の 上{うえ}に ペン ( 　 ) あります。",
+    "id": "Di atas meja ada pena.",
+    "opts": ["が", "を", "に", "で"],
+    "a": 0,
+    "exp": "Benda yang berada di suatu tempat dengan あります memakai subjek **が**."
+  },
+  {
+    "q": "あそこに 猫{ねこ} ( 　 ) います。",
+    "id": "Di sana ada kucing.",
+    "opts": ["が", "を", "で", "へ"],
+    "a": 0,
+    "exp": "Makhluk hidup yang berada di suatu tempat dengan います memakai subjek **が**."
+  },
+  {
+    "q": "コンビニは 駅{えき}の 前{まえ} ( 　 ) あります。",
+    "id": "Minimarket ada di depan stasiun.",
+    "opts": ["に", "で", "を", "へ"],
+    "a": 0,
+    "exp": "Lokasi keberadaan dengan あります／います ditandai partikel **に**."
+  },
+  {
+    "q": "机{つくえ}の 上{うえ}に 本{ほん} ( 　 ) ノートなどが あります。",
+    "id": "Di atas meja ada buku, catatan, dan lain-lain.",
+    "opts": ["や", "と", "も", "の"],
+    "a": 0,
+    "exp": "**や** menghubungkan kata benda sebagai contoh tidak lengkap (biasa diikuti など)."
+  },
+  {
+    "q": "私{わたし}は テニス ( 　 ) 上手{じょうず}です。",
+    "id": "Saya pandai bermain tenis.",
+    "opts": ["が", "を", "で", "に"],
+    "a": 0,
+    "exp": "Kata sifat kemahiran/kesukaan seperti 上手{じょうず}・好{す}き memakai partikel **が**."
+  },
+  {
+    "q": "私{わたし}は 新{あたら}しい スマホ ( 　 ) ほしいです。",
+    "id": "Saya ingin ponsel baru.",
+    "opts": ["が", "を", "に", "で"],
+    "a": 0,
+    "exp": "Benda yang diinginkan dengan ほしいです ditandai partikel **が**."
+  },
+  {
+    "q": "日本語{にほんご} ( 　 ) わかりますか。",
+    "id": "Apakah mengerti bahasa Jepang?",
+    "opts": ["が", "を", "で", "へ"],
+    "a": 0,
+    "exp": "Kata kerja わかります (mengerti) dan できます (bisa) memakai partikel **が**."
+  },
+  {
+    "q": "東京{とうきょう}は 大阪{おおさか} ( 　 ) 大{おお}きいです。",
+    "id": "Tokyo lebih besar daripada Osaka.",
+    "opts": ["より", "から", "まで", "の"],
+    "a": 0,
+    "exp": "Perbandingan \"lebih ... daripada B\" memakai **B より**."
+  },
+  {
+    "q": "夏{なつ} ( 　 ) 冬{ふゆ}と どちらが 好{す}きですか。",
+    "id": "Musim panas dan musim dingin, mana yang lebih disuka?",
+    "opts": ["と", "や", "の", "が"],
+    "a": 0,
+    "exp": "Membandingkan dua hal memakai pola **A と B と どちらが**."
+  },
+  {
+    "q": "この クラスで だれ ( 　 ) いちばん 背{せ}が 高{たか}いですか。",
+    "id": "Di kelas ini siapa yang paling tinggi?",
+    "opts": ["が", "は", "を", "に"],
+    "a": 0,
+    "exp": "Kata tanya di posisi subjek (だれ, 何{なに}, どれ, どこ) selalu memakai **が**, bukan は."
+  },
+  {
+    "q": "1{いっ}週間{しゅうかん} ( 　 ) 2回{にかい} 日本語{にほんご}を 勉強{べんきょう}します。",
+    "id": "Belajar bahasa Jepang 2 kali dalam seminggu.",
+    "opts": ["に", "で", "を", "が"],
+    "a": 0,
+    "exp": "Frekuensi dalam suatu rentang waktu memakai pola **[waktu] に [jumlah]**."
+  },
+  {
+    "q": "電車{でんしゃ} ( 　 ) 乗{の}ります。",
+    "id": "Naik kereta.",
+    "opts": ["に", "を", "で", "が"],
+    "a": 0,
+    "exp": "Kata kerja 乗{の}ります (naik kendaraan) memakai partikel **に**."
+  },
+  {
+    "q": "駅{えき}で 電車{でんしゃ} ( 　 ) 降{お}ります。",
+    "id": "Turun dari kereta di stasiun.",
+    "opts": ["を", "に", "で", "へ"],
+    "a": 0,
+    "exp": "Kebalikan dari 乗{の}ります, kata kerja 降{お}ります (turun kendaraan) memakai partikel **を**."
+  },
+  {
+    "q": "公園{こうえん} ( 　 ) 散歩{さんぽ}します。",
+    "id": "Jalan-jalan menyusuri taman.",
+    "opts": ["を", "に", "へ", "と"],
+    "a": 0,
+    "exp": "Kata kerja gerak melintasi/menyusuri tempat (散歩{さんぽ}します, 歩{ある}きます) memakai **を**."
+  },
+  {
+    "q": "橋{はし} ( 　 ) 渡{わた}ります。",
+    "id": "Menyeberangi jembatan.",
+    "opts": ["を", "に", "で", "へ"],
+    "a": 0,
+    "exp": "Tempat yang dilintasi atau diseberangi dengan 渡{わた}ります ditandai **を**."
+  },
+  {
+    "q": "デパートへ 靴{くつ}を 買{か}い ( 　 ) 行{い}きます。",
+    "id": "Pergi ke toserba untuk membeli sepatu.",
+    "opts": ["に", "で", "を", "へ"],
+    "a": 0,
+    "exp": "Tujuan bepergian memakai **[akar kata kerja ます] に 行{い}きます**."
+  },
+  {
+    "q": "A：毎日{まいにち} 遅{おそ}くまで 働{はたら}きます。 B：それは 大変{たいへん}です ( 　 )。",
+    "id": "A: Setiap hari kerja sampai larut. B: Itu berat, ya.",
+    "opts": ["ね", "を", "が", "で"],
+    "a": 0,
+    "exp": "Partikel akhir **ね** dipakai untuk menyatakan simpati atau mencari persetujuan (\"ya / kan\")."
+  },
+  {
+    "q": "A：あした テストが あります ( 　 )。 B：はい、あります。",
+    "id": "A: Apakah besok ada tes? B: Ya, ada.",
+    "opts": ["か", "よ", "ね", "を"],
+    "a": 0,
+    "exp": "Partikel akhir **か** mengubah kalimat menjadi kalimat tanya."
+  },
+  {
+    "q": "この 映画{えいが}は とても おもしろいです ( 　 )。見{み}て ください。",
+    "id": "Film ini sangat seru, lho. Coba tontonlah.",
+    "opts": ["よ", "か", "に", "を"],
+    "a": 0,
+    "exp": "Partikel akhir **よ** menekankan informasi baru kepada lawan bicara (\"lho\")."
+  },
+  {
+    "q": "「ありがとう」は インドネシア語{ご} ( 　 ) 何{なん}ですか。",
+    "id": "\"Arigatou\" dalam bahasa Indonesia apa?",
+    "opts": ["で", "に", "を", "が"],
+    "a": 0,
+    "exp": "Menyebut suatu bahasa sebagai sarana ungkapan memakai partikel **で**."
+  },
+  {
+    "q": "この いす ( 　 ) 座{すわ}って ください。",
+    "id": "Silakan duduk di kursi ini.",
+    "opts": ["に", "を", "で", "へ"],
+    "a": 0,
+    "exp": "Titik tempat tujuan duduk/masuk (座{すわ}ります, 入{はい}ります) memakai partikel **に**."
+  },
+  {
+    "q": "かばんの 中{なか}に ノート ( 　 ) あります。",
+    "id": "Di dalam tas ada buku catatan.",
+    "opts": ["が", "を", "に", "で"],
+    "a": 0,
+    "exp": "Subjek benda dengan あります selalu ditandai **が**."
+  },
+  {
+    "q": "先生{せんせい}に 本{ほん} ( 　 ) 借{か}りました。",
+    "id": "Meminjam buku dari guru.",
+    "opts": ["を", "が", "に", "で"],
+    "a": 0,
+    "exp": "Benda yang dipinjam sebagai objek 借{か}ります ditandai **を**."
+  },
+  {
+    "q": "電話{でんわ} ( 　 ) 友達{ともだち}と 話{はな}しました。",
+    "id": "Berbicara dengan teman lewat telepon.",
+    "opts": ["で", "に", "を", "へ"],
+    "a": 0,
+    "exp": "Alat atau media komunikasi (電話{でんわ}で) memakai partikel **で**."
+  },
+  {
+    "q": "山田{やまだ}さんは 東京{とうきょう} ( 　 ) 住{す}んで います。",
+    "id": "Pak Yamada tinggal di Tokyo.",
+    "opts": ["に", "で", "を", "へ"],
+    "a": 0,
+    "exp": "Tempat tinggal dengan 住{す}んで います memakai partikel **に**."
+  },
+  {
+    "q": "ここは さくら大学{だいがく} ( 　 ) 図書館{としょかん}です。",
+    "id": "Di sini adalah perpustakaan Universitas Sakura.",
+    "opts": ["の", "に", "で", "を"],
+    "a": 0,
+    "exp": "**の** menghubungkan dua kata benda di mana kata depan menerangkan kata belakang."
+  }
+]

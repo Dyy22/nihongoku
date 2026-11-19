@@ -1,0 +1,472 @@
+{
+  "id": "nat-q5",
+  "order": 3,
+  "code": "NAT Q5",
+  "title": "NAT-TEST Q5",
+  "subtitle": "Japanese Language NAT-TEST · Tingkat 5Q (Setara N5)",
+  "desc": "Simulasi ujian Japanese Language NAT-TEST tingkat 5Q (setara JLPT N5). Terdiri dari 3 bagian bernilai 60 poin masing-masing: Huruf & Kosa Kata, Mendengarkan, serta Tata Bahasa & Bacaan.",
+  "passTotal": 108,
+  "maxTotal": 180,
+  "scoreGroups": [
+    {
+      "id": "vocab",
+      "title": "文字・語彙 (Huruf & Kosa Kata)",
+      "max": 60,
+      "pass": 15
+    },
+    {
+      "id": "listen",
+      "title": "聴解 (Mendengarkan)",
+      "max": 60,
+      "pass": 15
+    },
+    {
+      "id": "gramread",
+      "title": "読解・文法 (Tata Bahasa & Bacaan)",
+      "max": 60,
+      "pass": 15
+    }
+  ],
+  "sections": [
+    {
+      "id": "moji-goi",
+      "title": "文字・語彙 (Huruf & Kosa Kata)",
+      "desc": "Menguji cara baca kanji, penulisan kanji/katakana, konteks kalimat, dan persamaan makna tingkat 5Q.",
+      "minutes": 20,
+      "scoreGroup": "vocab",
+      "questions": [
+        {
+          "mondai": "問題1 · Cara Baca Kanji",
+          "inst": "Pilih cara baca hiragana yang tepat untuk kata yang bergaris bawah.",
+          "q": "この __川__ の 水{みず}は とても きれいです。",
+          "opts": ["かわ", "やま", "うみ", "いけ"],
+          "a": 0,
+          "exp": "川{かわ} berarti \"sungai\" dan dibaca **かわ**. 山{やま} = gunung, 海{うみ} = laut."
+        },
+        {
+          "mondai": "問題1 · Cara Baca Kanji",
+          "inst": "Pilih cara baca hiragana yang tepat untuk kata yang bergaris bawah.",
+          "q": "今日{きょう}の __天気__ は とても いいです。",
+          "opts": ["でんき", "てんき", "げんき", "てんぎ"],
+          "a": 1,
+          "exp": "天気{てんき} berarti \"cuaca\" (dibaca **てんき**). 電気{でんき} = listrik, 元気{げんき} = sehat."
+        },
+        {
+          "mondai": "問題1 · Cara Baca Kanji",
+          "inst": "Pilih cara baca hiragana yang tepat untuk kata yang bergaris bawah.",
+          "q": "兄{あに}は __外国__ の 会社{かいしゃ}で 働{はたら}いて います。",
+          "opts": ["がいこく", "かいこく", "がいごく", "そとくに"],
+          "a": 0,
+          "exp": "外国{がいこく} berarti \"luar negeri\" dan dibaca **がいこく**."
+        },
+        {
+          "mondai": "問題1 · Cara Baca Kanji",
+          "inst": "Pilih cara baca hiragana yang tepat untuk kata yang bergaris bawah.",
+          "q": "__午前__ 9時{くじ}から アルバイトを します。",
+          "opts": ["ごご", "ごぜん", "ごせん", "こぜん"],
+          "a": 1,
+          "exp": "午前{ごぜん} berarti \"pagi (a.m.)\" dan dibaca **ごぜん**. 午後{ごご} berarti siang/sore (p.m.)."
+        },
+        {
+          "mondai": "問題2 · Penulisan Kanji & Katakana",
+          "inst": "Pilih penulisan kanji atau katakana yang tepat untuk kata yang bergaris bawah.",
+          "q": "あそこに __しろい__ いぬが います。",
+          "opts": ["白い", "赤い", "青い", "黒い"],
+          "a": 0,
+          "exp": "**しろい** (putih) ditulis **白い**. 赤{あか}い = merah, 青{あお}い = biru, 黒{くろ}い = hitam."
+        },
+        {
+          "mondai": "問題2 · Penulisan Kanji & Katakana",
+          "inst": "Pilih penulisan kanji atau katakana yang tepat untuk kata yang bergaris bawah.",
+          "q": "ここに あなたの __なまえ__ を 書{か}いて ください。",
+          "opts": ["名前", "右前", "左前", "午前"],
+          "a": 0,
+          "exp": "**なまえ** (nama) ditulis **名前**."
+        },
+        {
+          "mondai": "問題2 · Penulisan Kanji & Katakana",
+          "inst": "Pilih penulisan kanji atau katakana yang tepat untuk kata yang bergaris bawah.",
+          "q": "あした __てれび__ で サッカーの 試合{しあい}を 見{み}ます。",
+          "opts": ["テレビ", "テリビ", "デレビ", "テレピ"],
+          "a": 0,
+          "exp": "Kata serapan *television* ditulis **テレビ**."
+        },
+        {
+          "mondai": "問題3 · Konteks Kalimat",
+          "inst": "Pilih kata yang paling tepat untuk mengisi bagian kosong ( 　 ).",
+          "q": "のどが かわきましたから、つめたい 水{みず}を ( 　 )。",
+          "opts": ["のみます", "たべます", "すいます", "かきます"],
+          "a": 0,
+          "exp": "Karena haus (*のどが かわきました*), tindakan yang dilakukan terhadap air adalah **のみます** (飲{の}みます = minum)."
+        },
+        {
+          "mondai": "問題3 · Konteks Kalimat",
+          "inst": "Pilih kata yang paling tepat untuk mengisi bagian kosong ( 　 ).",
+          "q": "部屋{へや}が 暑{あつ}いですから、まどを ( 　 )。",
+          "opts": ["あけます", "しめます", "けします", "とめます"],
+          "a": 0,
+          "exp": "Karena kamar panas, jendela dibuka memakai **あけます** (開{あ}けます)."
+        },
+        {
+          "mondai": "問題3 · Konteks Kalimat",
+          "inst": "Pilih kata yang paling tepat untuk mengisi bagian kosong ( 　 ).",
+          "q": "すみません、この 漢字{かんじ}の ( 　 ) が わかりません。",
+          "opts": ["よみかた", "のりかた", "かえりかた", "たべかた"],
+          "a": 0,
+          "exp": "**よみかた** (読{よ}み方{かた}) berarti \"cara membaca\". Cocok untuk menanyakan cara baca kanji."
+        },
+        {
+          "mondai": "問題3 · Konteks Kalimat",
+          "inst": "Pilih kata yang paling tepat untuk mengisi bagian kosong ( 　 ).",
+          "q": "出{で}かける 前{まえ}に、部屋{へや}の 電気{でんき}を ( 　 ) ください。",
+          "opts": ["つけて", "けして", "あけて", "しめて"],
+          "a": 1,
+          "exp": "Sebelum keluar rumah, matikan lampu kamar memakai **けして** (消{け}して)."
+        },
+        {
+          "mondai": "問題4 · Persamaan Makna",
+          "inst": "Pilih kalimat yang maknanya paling dekat dengan kalimat soal.",
+          "q": "この 町{まち}は とても **静{しず}かです**。",
+          "opts": [
+            "この 町{まち}は うるさくないです。",
+            "この 町{まち}は にぎやかです。",
+            "この 町{まち}は せまいです。",
+            "この 町{まち}は さむいです。"
+          ],
+          "a": 0,
+          "exp": "静{しず}かです (tenang/sepi) maknanya paling dekat dengan **うるさくないです** (tidak berisik)."
+        },
+        {
+          "mondai": "問題4 · Persamaan Makna",
+          "inst": "Pilih kalimat yang maknanya paling dekat dengan kalimat soal.",
+          "q": "きのう **たくさん** ごはんを 食{た}べました。",
+          "opts": [
+            "きのう いっぱい ごはんを 食{た}べました。",
+            "きのう すこしだけ ごはんを 食{た}べました。",
+            "きのう ぜんぜん ごはんを 食{た}べませんでした。",
+            "きのう はやく ごはんを 食{た}べました。"
+          ],
+          "a": 0,
+          "exp": "**たくさん** (banyak) dekat maknanya dengan **いっぱい** (penuh/banyak sekali)."
+        },
+        {
+          "mondai": "問題4 · Persamaan Makna",
+          "inst": "Pilih kalimat yang maknanya paling dekat dengan kalimat soal.",
+          "q": "この 仕事{しごと}は **かんたん** です。",
+          "opts": [
+            "この 仕事{しごと}は むずかしくないです。",
+            "この 仕事{しごと}は とても たいへんです。",
+            "この 仕事{しごと}は おもしろいです。",
+            "この 仕事{しごと}は ながいです。"
+          ],
+          "a": 0,
+          "exp": "**かんたん** (簡{かん}単{たん} = mudah/sederhana) sama artinya dengan **むずかしくないです** (tidak sulit)."
+        }
+      ]
+    },
+    {
+      "id": "choukai",
+      "title": "聴解 (Mendengarkan)",
+      "desc": "Menguji pemahaman tugas, poin utama percakapan, dan respons cepat dengan audio dialog dua suara.",
+      "minutes": 20,
+      "scoreGroup": "listen",
+      "questions": [
+        {
+          "mondai": "問題1 · Pemahaman Tugas",
+          "inst": "Dengarkan audio percakapan lalu pilih jawaban yang tepat.",
+          "turns": [
+            ["n", "ホテルで 男{おとこ}の人{ひと}と ホテルの人{ひと}が 話{はな}して います。朝{あさ}ごはんは どこで 食{た}べますか。"],
+            ["m", "すみません、朝{あさ}ごはんは 何時{なんじ}からですか。"],
+            ["f", "7時{しちじ}から 9時{くじ}半{はん}までです。1階{いっかい}の ロビーの 横{よこ}に レストランが ありますが、朝{あさ}ごはんは 2階{にかい}の 食堂{しょくどう}で お願{ねが}いします。"],
+            ["m", "2階{にかい}ですね。わかりました。"],
+            ["n", "朝{あさ}ごはんは どこで 食{た}べますか。"]
+          ],
+          "script": "男：すみません、朝{あさ}ごはんは 何時{なんじ}からですか。\nホテルの人：7時{しちじ}から 9時{くじ}半{はん}までです。1階{いっかい}の ロビーの 横{よこ}に レストランが ありますが、朝{あさ}ごはんは 2階{にかい}の 食堂{しょくどう}で お願{ねが}いします。\n男：2階{にかい}ですね。わかりました。",
+          "q": "朝{あさ}ごはんは どこで 食{た}べますか。",
+          "opts": [
+            "1階{いっかい}の ロビー",
+            "1階{いっかい}の レストラン",
+            "2階{にかい}の 食堂{しょくどう}",
+            "自分{じぶん}の 部屋{へや}"
+          ],
+          "a": 2,
+          "exp": "Walau ada restoran di lantai 1, staf hotel meminta tamu sarapan di ruang makan lantai 2 (**2階{にかい}の 食堂{しょくどう}**)."
+        },
+        {
+          "mondai": "問題1 · Pemahaman Tugas",
+          "inst": "Dengarkan audio percakapan lalu pilih jawaban yang tepat.",
+          "turns": [
+            ["n", "果物屋{くだものや}で 女{おんな}の人{ひと}が 買{か}い物{もの}を して います。女{おんな}の人{ひと}は 何{なに}を 買{か}いますか。"],
+            ["f", "すみません、りんごを 3{みっ}つ ください。それから、この みかんも 2{ふた}つ お願{ねが}いします。"],
+            ["m", "はい、りんご 3{みっ}つと みかん 2{ふた}つですね。バナナは いかがですか。今日{きょう}は 安{やす}いですよ。"],
+            ["f", "ありがとう。でも、バナナは うちに まだ たくさん ありますから、いいです。"],
+            ["n", "女{おんな}の人{ひと}は 何{なに}を 買{か}いますか。"]
+          ],
+          "script": "女：すみません、りんごを 3{みっ}つ ください。それから、この みかんも 2{ふた}つ お願{ねが}いします。\n店員：はい、りんご 3{みっ}つと みかん 2{ふた}つですね。バナナは いかがですか。今日{きょう}は 安{やす}いですよ。\n女：ありがとう。でも、バナナは うちに まだ たくさん ありますから、いいです。",
+          "q": "女{おんな}の人{ひと}は 何{なに}を 買{か}いますか。",
+          "opts": [
+            "りんご 3{みっ}つと みかん 2{ふた}つ",
+            "りんご 2{ふた}つと みかん 3{みっ}つ",
+            "りんご 3{みっ}つと バナナ",
+            "みかん 2{ふた}つと バナナ"
+          ],
+          "a": 0,
+          "exp": "Ia membeli 3 apel dan 2 jeruk, lalu menolak pisang karena di rumah masih banyak."
+        },
+        {
+          "mondai": "問題1 · Pemahaman Tugas",
+          "inst": "Dengarkan audio percakapan lalu pilih jawaban yang tepat.",
+          "turns": [
+            ["n", "会社{かいしゃ}で 女{おんな}の人{ひと}と 男{おとこ}の人{ひと}が 話{はな}して います。男{おとこ}の人{ひと}は いつ 資料{しりょう}を 出{だ}しますか。"],
+            ["m", "部長{ぶちょう}、この 資料{しりょう}は 金曜日{きんようび}までに 出{だ}せば いいですか。"],
+            ["f", "ええと、会議{かいぎ}が 金曜日{きんようび}の 朝{あさ}に ありますから、木曜日{もくようび}の 夕方{ゆうがた}までに お願{ねが}いします。"],
+            ["m", "わかりました。じゃあ、水曜日{すいようび}に 終{お}わらせて、木曜日{もくようび}の 朝{あさ} 出{だ}します。"],
+            ["f", "はい、助{たす}かります。"],
+            ["n", "男{おとこ}の人{ひと}は いつ 資料{しりょう}を 出{だ}しますか。"]
+          ],
+          "script": "男：部長{ぶちょう}、この 資料{しりょう}は 金曜日{きんようび}までに 出{だ}せば いいですか。\n女：ええと、会議{かいぎ}が 金曜日{きんようび}の 朝{あさ}に ありますから、木曜日{もくようび}の 夕方{ゆうがた}までに お願{ねが}いします。\n男：わかりました。じゃあ、水曜日{すいようび}に 終{お}わらせて、木曜日{もくようび}の 朝{あさ} 出{だ}します。\n女：はい、助{たす}かります。",
+          "q": "男{おとこ}の人{ひと}は いつ 資料{しりょう}を 出{だ}しますか。",
+          "opts": [
+            "水曜日{すいようび}の 夕方{ゆうがた}",
+            "木曜日{もくようび}の 朝{あさ}",
+            "木曜日{もくようび}の 夕方{ゆうがた}",
+            "金曜日{きんようび}の 朝{あさ}"
+          ],
+          "a": 1,
+          "exp": "Atasan meminta paling lambat Kamis sore, lalu karyawan itu berjanji menyelesaikannya Rabu dan menyerahkannya pada **木曜日{もくようび}の 朝{あさ}** (Kamis pagi)."
+        },
+        {
+          "mondai": "問題2 · Pemahaman Poin Utama",
+          "inst": "Dengarkan audio percakapan lalu pilih jawaban yang tepat.",
+          "turns": [
+            ["n", "男{おとこ}の人{ひと}と 女{おんな}の人{ひと}が 話{はな}して います。二人{ふたり}は どうして パン屋{や}に 入{はい}りませんでしたか。"],
+            ["m", "あ、新{あたら}しい パン屋{や}が できましたね。ちょっと 入{はい}ってみませんか。"],
+            ["f", "いいですね。でも、電気{でんき}が ついて いませんよ。"],
+            ["m", "本当{ほんとう}ですね。あ、ドアに 紙{かみ}が はって あります。「毎週{まいしゅう} 水曜日{すいようび} 休{やす}み」と 書{か}いて あります。"],
+            ["f", "残念{ざんねん}ですね。また 明日{あした} 来{き}ましょう。"],
+            ["n", "二人{ふたり}は どうして パン屋{や}に 入{はい}りませんでしたか。"]
+          ],
+          "script": "男：あ、新{あたら}しい パン屋{や}が できましたね。ちょっと 入{はい}ってみませんか。\n女：いいですね。でも、電気{でんき}が ついて いませんよ。\n男：本当{ほんとう}ですね。あ、ドアに 紙{かみ}が はって あります。「毎週{まいしゅう} 水曜日{すいようび} 休{やす}み」と 書{か}いて あります。\n女：残念{ざんねん}ですね。また 明日{あした} 来{き}ましょう。",
+          "q": "二人{ふたり}は どうして パン屋{や}に 入{はい}りませんでしたか。",
+          "opts": [
+            "人{ひと}が たくさん いたから",
+            "パンが 全部{ぜんぶ} 売{う}れたから",
+            "今日{きょう}は 店{みせ}の 休{やす}みだから",
+            "お金{かね}が 足{た}りなかったから"
+          ],
+          "a": 2,
+          "exp": "Lampu toko tidak menyala dan di pintu tertempel pengumuman libur rutin setiap Rabu (**今日{きょう}は 店{みせ}の 休{やす}みだから**)."
+        },
+        {
+          "mondai": "問題2 · Pemahaman Poin Utama",
+          "inst": "Dengarkan audio percakapan lalu pilih jawaban yang tepat.",
+          "turns": [
+            ["n", "女{おんな}の 学生{がくせい}と 男{おとこ}の 学生{がくせい}が 夏休{なつやす}みに ついて 話{はな}して います。男{おとこ}の 学生{がくせい}は 何{なに}で 京都{きょうと}へ 行{い}きますか。"],
+            ["f", "リーさん、夏休{なつやす}みに どこかへ 行{い}きますか。"],
+            ["m", "はい、友達{ともだち}と 京都{きょうと}へ 行{い}きます。"],
+            ["f", "いいですね。飛行機{ひこうき}で 行{い}きますか。"],
+            ["m", "いいえ、空港{くうこう}まで 遠{とお}いですから。夜{よる}の バスは 安{やす}いですが、疲{つか}れますから、新幹線{しんかんせん}で 行{い}く ことに しました。"],
+            ["n", "男{おとこ}の 学生{がくせい}は 何{なに}で 京都{きょうと}へ 行{い}きますか。"]
+          ],
+          "script": "女：リーさん、夏休{なつやす}みに どこかへ 行{い}きますか。\n男：はい、友達{ともだち}と 京都{きょうと}へ 行{い}きます。\n女：いいですね。飛行機{ひこうき}で 行{い}きますか。\n男：いいえ、空港{くうこう}まで 遠{とお}いですから。夜{よる}の バスは 安{やす}いですが、疲{つか}れますから、新幹線{しんかんせん}で 行{い}く ことに しました。",
+          "q": "男{おとこ}の 学生{がくせい}は 何{なに}で 京都{きょうと}へ 行{い}きますか。",
+          "opts": ["飛行機{ひこうき}", "夜{よる}の バス", "新幹線{しんかんせん}", "車{くるま}"],
+          "a": 2,
+          "exp": "Bandara jauh dan bus malam melelahkan, sehingga ia memutuskan pergi naik **新幹線{しんかんせん}** (Shinkansen)."
+        },
+        {
+          "mondai": "問題2 · Pemahaman Poin Utama",
+          "inst": "Dengarkan audio percakapan lalu pilih jawaban yang tepat.",
+          "turns": [
+            ["n", "図書館{としょかん}で 男{おとこ}の人{ひと}と 図書館{としょかん}の人{ひと}が 話{はな}して います。男{おとこ}の人{ひと}は 本{ほん}を どのくらい 借{か}りることが できますか。"],
+            ["m", "すみません、この 本{ほん}を 借{か}りたいんですが。"],
+            ["f", "はい、図書館{としょかん}の カードを 見{み}せて ください。"],
+            ["m", "どうぞ。何日{なんにち} 借{か}りることが できますか。"],
+            ["f", "普通{ふつう}の 本{ほん}は 2週間{にしゅうかん}です。DVDは 1週間{いっしゅうかん}ですが、この 本{ほん}は 2週間{にしゅうかん} 大丈夫{だいじょうぶ}です。"],
+            ["n", "男{おとこ}の人{ひと}は 本{ほん}を どのくらい 借{か}りることが できますか。"]
+          ],
+          "script": "男：すみません、この 本{ほん}を 借{か}りたいんですが。\n図書館の人：はい、図書館{としょかん}の カードを 見{み}せて ください。\n男：どうぞ。何日{なんにち} 借{か}りることが できますか。\n図書館の人：普通{ふつう}の 本{ほん}は 2週間{にしゅうかん}です。DVDは 1週間{いっしゅうかん}ですが、この 本{ほん}は 2週間{にしゅうかん} 大丈夫{だいじょうぶ}です。",
+          "q": "男{おとこ}の人{ひと}は 本{ほん}を どのくらい 借{か}りることが できますか。",
+          "opts": ["3日{みっか}", "1週間{いっしゅうかん}", "2週間{にしゅうかん}", "1{いっ}か月{げつ}"],
+          "a": 2,
+          "exp": "DVD hanya 1 minggu, sedangkan buku tersebut bisa dipinjam selama **2週間{にしゅうかん}** (2 minggu)."
+        },
+        {
+          "mondai": "問題3 · Respons Cepat",
+          "inst": "Dengarkan ujaran pendek lalu pilih respons yang paling tepat.",
+          "turns": [
+            ["m", "すみません、この ペンを 借{か}りても いいですか。"]
+          ],
+          "script": "「すみません、この ペンを 借{か}りても いいですか。」",
+          "q": "質問{しつもん}を 聞{き}いて、いちばん いい 返事{へんじ}を 選{えら}んで ください。",
+          "opts": [
+            "ええ、どうぞ。",
+            "はい、かしました。",
+            "いいえ、借{か}ります。",
+            "どういたしまして。"
+          ],
+          "a": 0,
+          "exp": "Menjawab permintaan izin meminjam barang (*～ても いいですか*) dengan ramah adalah **ええ、どうぞ。** (\"Ya, silakan.\")."
+        },
+        {
+          "mondai": "問題3 · Respons Cepat",
+          "inst": "Dengarkan ujaran pendek lalu pilih respons yang paling tepat.",
+          "turns": [
+            ["f", "あしたの パーティー、何時{なんじ}ごろ 始{はじ}まりますか。"]
+          ],
+          "script": "「あしたの パーティー、何時{なんじ}ごろ 始{はじ}まりますか。」",
+          "q": "質問{しつもん}を 聞{き}いて、いちばん いい 返事{へんじ}を 選{えら}んで ください。",
+          "opts": [
+            "6時{ろくじ}からです。",
+            "6時間{ろくじかん}です。",
+            "6人{ろくにん}です。",
+            "6階{ろっかい}です。"
+          ],
+          "a": 0,
+          "exp": "Pertanyaan menanyakan jam mulai (*何時{なんじ}ごろ 始{はじ}まりますか*), maka dijawab dengan jam mulai **6時{ろくじ}からです。** (mulai jam 6)."
+        }
+      ]
+    },
+    {
+      "id": "bunpou-dokkai",
+      "title": "読解・文法 (Tata Bahasa & Bacaan)",
+      "desc": "Menguji partikel, konjugasi, menyusun kalimat (★), wacana rumpang, dan pemahaman bacaan tingkat 5Q.",
+      "minutes": 30,
+      "scoreGroup": "gramread",
+      "questions": [
+        {
+          "mondai": "問題1 · Partikel & Tata Bahasa",
+          "inst": "Pilih kata atau partikel yang paling tepat untuk mengisi ( 　 ).",
+          "q": "きのう 友達{ともだち} ( 　 ) 電話{でんわ}を もらいました。",
+          "opts": ["から", "へ", "で", "を"],
+          "a": 0,
+          "exp": "Menerima sesuatu (atau telepon) dari seseorang memakai partikel **から** (atau に) setelah orang pemberi."
+        },
+        {
+          "mondai": "問題1 · Partikel & Tata Bahasa",
+          "inst": "Pilih kata atau partikel yang paling tepat untuk mengisi ( 　 ).",
+          "q": "この 道{みち}を まっすぐ 行{い}く ( 　 )、右{みぎ}に 郵便局{ゆうびんきょく}が あります。",
+          "opts": ["と", "が", "を", "で"],
+          "a": 0,
+          "exp": "Penunjuk arah memakai pola **[kata kerja bentuk kamus] と** untuk menyatakan hasil yang pasti terlihat (\"kalau lurus terus, di kanan ada kantor pos\")."
+        },
+        {
+          "mondai": "問題1 · Partikel & Tata Bahasa",
+          "inst": "Pilih kata yang paling tepat untuk mengisi ( 　 ).",
+          "q": "日本語{にほんご}が 上手{じょうず}に ( 　 ) たいです。",
+          "opts": ["なり", "なる", "なって", "なった"],
+          "a": 0,
+          "exp": "Menyatakan ingin melakukan/menjadi menggunakan **[akar kata kerja ます] + たいです**. Bentuk ます dari なる adalah なります -> **なり**たいです."
+        },
+        {
+          "mondai": "問題1 · Partikel & Tata Bahasa",
+          "inst": "Pilih bentuk yang paling tepat untuk mengisi ( 　 ).",
+          "q": "ここには 車{くるま}を 止{と}めて ( 　 )。",
+          "opts": ["もいいです", "はいけません", "ください", "あります"],
+          "a": 1,
+          "exp": "Larangan memakai pola **～ては いけません** (tidak boleh memarkir mobil di sini). Perhatikan partikel **は** sudah masuk dalam pilihan **はいけません**."
+        },
+        {
+          "mondai": "問題1 · Partikel & Tata Bahasa",
+          "inst": "Pilih partikel yang paling tepat untuk mengisi ( 　 ).",
+          "q": "先生{せんせい}は 「あした 9時{くじ}に 来{き}て ください」 ( 　 ) 言{い}いました。",
+          "opts": ["を", "が", "に", "と"],
+          "a": 3,
+          "exp": "Kutipan perkataan sebelum 言{い}いました (berkata) selalu ditandai dengan partikel **と**."
+        },
+        {
+          "mondai": "問題1 · Partikel & Tata Bahasa",
+          "inst": "Pilih bentuk yang paling tepat untuk mengisi ( 　 ).",
+          "q": "雨{あめ}が ( 　 )、サッカーを します。",
+          "opts": ["降{ふ}っても", "降{ふ}ってから", "降{ふ}るまえに", "降{ふ}りながら"],
+          "a": 0,
+          "exp": "**～ても** menyatakan pengandaian bertentangan (\"meskipun hujan turun, tetap bermain sepak bola\")."
+        },
+        {
+          "mondai": "問題2 · Menyusun Kalimat (★)",
+          "inst": "Susun pilihan kata ke dalam 4 kotak kosong menjadi kalimat yang tepat, lalu pilih kata di posisi ★.",
+          "q": "私{わたし}は ＿＿ ＿＿ ★ ＿＿ が できます。",
+          "opts": ["漢字{かんじ}", "を", "書{か}く", "こと"],
+          "a": 2,
+          "exp": "Susunan lengkap: 私{わたし}は **漢字{かんじ} を 書{か}く こと** が できます。(Saya bisa menulis kanji). Posisi ★ adalah **書{か}く**."
+        },
+        {
+          "mondai": "問題2 · Menyusun Kalimat (★)",
+          "inst": "Susun pilihan kata ke dalam 4 kotak kosong menjadi kalimat yang tepat, lalu pilih kata di posisi ★.",
+          "q": "家{いえ}から 駅{えき}まで ＿＿ ＿＿ ★ ＿＿ かかります。",
+          "opts": ["15分{じゅうごふん}", "で", "バス", "ぐらい"],
+          "a": 0,
+          "exp": "Susunan lengkap: 家{いえ}から 駅{えき}まで **バス で 15分{じゅうごふん} ぐらい** かかります。(Dari rumah ke stasiun naik bus makan waktu sekitar 15 menit). Posisi ★ adalah **15分{じゅうごふん}**."
+        },
+        {
+          "mondai": "問題2 · Menyusun Kalimat (★)",
+          "inst": "Susun pilihan kata ke dalam 4 kotak kosong menjadi kalimat yang tepat, lalu pilih kata di posisi ★.",
+          "q": "田中{たなか}さんは ＿＿ ＿＿ ★ ＿＿ 待{ま}って います。",
+          "opts": ["で", "前{まえ}", "駅{えき}", "の"],
+          "a": 1,
+          "exp": "Susunan lengkap: 田中{たなか}さんは **駅{えき} の 前{まえ} で** 待{ま}って います。(Pak Tanaka sedang menunggu di depan stasiun). Posisi ★ adalah **前{まえ}**."
+        },
+        {
+          "mondai": "問題3 · Tata Bahasa dalam Wacana",
+          "inst": "Bacalah teks berikut dan pilih kata yang tepat untuk mengisi bagian [ ① ].",
+          "passage": "私{わたし}の 町{まち}には 大{おお}きい 公園{こうえん}が あります。春{はる}に なると、きれいな さくらが たくさん **[ ① ]**。私{わたし}は 毎年{まいとし} 家族{かぞく}と そこへ 花見{はなみ}に 行{い}きます。みんなで おいしい お弁当{べんとう}を 食{た}べたり、歌{うた}を 歌{うた}ったり します。みなさんも 春{はる}に なったら、ぜひ この 公園{こうえん}へ 来{き}て **[ ② ]**。",
+          "q": "Bagian **[ ① ]** diisi dengan kata apa?",
+          "opts": ["咲{さ}きます", "咲{さ}きました", "咲{さ}きません", "咲{さ}いて"],
+          "a": 0,
+          "exp": "Setelah **春{はる}に なると** (setiap kali musim semi tiba), kalimat menyatakan kejadian alami yang selalu berulang, memakai bentuk kini positif **咲{さ}きます** (mekar)."
+        },
+        {
+          "mondai": "問題3 · Tata Bahasa dalam Wacana",
+          "inst": "Bacalah teks yang sama dan pilih kata yang tepat untuk mengisi bagian [ ② ].",
+          "passage": "私{わたし}の 町{まち}には 大{おお}きい 公園{こうえん}が あります。春{はる}に なると、きれいな さくらが たくさん **[ ① ]**。私{わたし}は 毎年{まいとし} 家族{かぞく}と そこへ 花見{はなみ}に 行{い}きます。みんなで おいしい お弁当{べんとう}を 食{た}べたり、歌{うた}を 歌{うた}ったり します。みなさんも 春{はる}に なったら、ぜひ この 公園{こうえん}へ 来{き}て **[ ② ]**。",
+          "q": "Bagian **[ ② ]** diisi dengan kata apa?",
+          "opts": ["ください", "います", "あります", "しまいます"],
+          "a": 0,
+          "exp": "Karena mengajak pembaca dengan **ぜひ** (sungguh/silakan sekali), akhir kalimat **来{き}て ください** berarti \"silakan datang berkunjung\"."
+        },
+        {
+          "mondai": "問題4 · Pemahaman Bacaan (Dokkai)",
+          "inst": "Bacalah memo di pintu kulkas berikut dan jawab pertanyaannya.",
+          "passage": "マリアさんへ\n\n冷蔵庫{れいぞうこ}の 中{なか}に リンゴジュースと ケーキが あります。\nケーキは 弟{おとうと}の 誕生日{たんじょうび}の ものですから、まだ 食{た}べないで ください。\nリンゴジュースは 飲{の}んでも いいですよ。\n\n母{はは}",
+          "q": "マリアさんは 冷蔵庫{れいぞうこ}の ものを どう しますか。",
+          "opts": [
+            "ケーキと ジュースを 全部{ぜんぶ} 食{た}べます。",
+            "ケーキは 食{た}べますが、ジュースは 飲{の}みません。",
+            "ジュースは 飲{の}みますが、ケーキは 食{た}べません。",
+            "ケーキも ジュースも 触{さわ}りません。"
+          ],
+          "a": 2,
+          "exp": "Ibu melarang makan kue (*まだ 食{た}べないで ください*) karena untuk ulang tahun adik, tetapi membolehkan minum jus apel (*飲{の}んでも いいですよ*)."
+        },
+        {
+          "mondai": "問題4 · Pemahaman Bacaan (Dokkai)",
+          "inst": "Bacalah kartu pos berikut dan jawab pertanyaannya.",
+          "passage": "ケンさんへ\n\n今{いま}、飛行機{ひこうき}で 北海道{ほっかいどう}に 来{き}て います。\n東京{とうきょう}は とても 暑{あつ}かったですが、ここは 涼{すず}しくて 気持{きも}ちが いいです。\n昨日{きのう}は おいしい ラーメンを 食{た}べました。\n日曜日{にちようび}に 東京{とうきょう}へ 帰{かえ}ります。\n\nリナ",
+          "q": "リナさんの 話{はなし}と 合{あ}っている ものは どれですか。",
+          "opts": [
+            "北海道{ほっかいどう}は 東京{とうきょう}より 暑{あつ}いです。",
+            "リナさんは 新幹線{しんかんせん}で 北海道{ほっかいどう}へ 行{い}きました。",
+            "北海道{ほっかいどう}は 涼{すず}しいです。",
+            "リナさんは 日曜日{にちようび}に 北海道{ほっかいどう}へ 行{い}きます。"
+          ],
+          "a": 2,
+          "exp": "Di kartu pos tertulis *東京{とうきょう}は とても 暑{あつ}かったですが、ここは 涼{すず}しくて...* (Tokyo panas, tapi di Hokkaido sejuk)."
+        },
+        {
+          "mondai": "問題4 · Pemahaman Bacaan (Dokkai)",
+          "inst": "Bacalah jadwal acara berikut dan jawab pertanyaannya.",
+          "passage": "土曜日{どようび} 日本{にほん}文化{ぶんか}の 日{ひ}\n\n10:00 ～ 11:30　おりがみ 教室{きょうしつ}\n12:00 ～ 13:00　昼{ひる}ごはん（おにぎりを 作{つく}ります）\n13:30 ～ 15:00　お茶{ちゃ}の 体験{たいけん}\n\n※ 昼{ひる}ごはんは 自分{じぶん}で 持{も}って 来{こ}なくても いいです。",
+          "q": "この イベントに 参加{さんか}する 人{ひと}について 正{ただ}しいのは どれですか。",
+          "opts": [
+            "昼{ひる}ごはんを 家{いえ}から 持{も}って 来{こ}なければ なりません。",
+            "午前中{ごぜんちゅう}に お茶{ちゃ}の 体験{たいけん}が あります。",
+            "昼{ひる}ごはんを 自分{じぶん}で 持{も}って 来{こ}る 必要{ひつよう}は ありません。",
+            "おりがみ 教室{きょうしつ}は 午後{ごご} 1時{いちじ}半{はん}からです。"
+          ],
+          "a": 2,
+          "exp": "Catatan paling bawah menyebut *持{も}って 来{こ}なくても いいです* (tidak perlu membawa makan siang sendiri karena akan membuat onigiri di acara)."
+        }
+      ]
+    }
+  ]
+}
